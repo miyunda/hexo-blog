@@ -21,7 +21,7 @@ before_install:
 - cp .travis/ssh_config ~/.ssh/config
 - npm install -g hexo-cli
 - rm -rf themes/next
-- git clone -b my-next https://github.com/miyunda/hexo-theme-next.git themes/next
+- git clone  https://github.com/miyunda/hexo-theme-next.git themes/next
 #安装需要的插件
 install:
 - npm install
