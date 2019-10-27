@@ -1,26 +1,20 @@
-# 指定nodejs版本
-anguage: node_js
-node_js: stable
-$ 发送slack通知
 notifications:
   slack:
-    secure: BhlsOpZ1gXAP5/ayVy18kBdX2uP6F5wa9H62D4Dljy41Dlwaia/CzV1f8/MXnlFR4NGf3jBTYLWxQmhihC4PqYUIXEcVPbH2Ew8IS+NFrCeJ0PV3pRD9JmDUKCHGQli7gLMIYj/bcycDUBJIkGM4snoVD6eAj5yhPD9iET2DO2GPlUNRzPhmbXGyWsIpOGrLFwqwPgVzHQ2Fvy7cKB9RcMmrjCDikXDfhjk68I00DbxotKlSwqipr603f5b/eN5k/qAeoBMuH3G6OEHGE5cVhNBv6F4m3BOrCuO0ApEXgNgH3PlyVoZpdv81X5z1r1h2Xx/Mw30NC2d8BLP3W50Hg5br/75Mzd48ut8o03hnNdsyBiebtLPLXz2QTGDtkC0lVjOIcEgastmc74AOlKFpohlDtVvnLSHkLP3Q012TXi3p2WU5MM2ym7nDw55EbONkDGYwTTSBQEgaX9TwUoLGwhbqckYTShFoVHxcmaL2dE6kkn4rgEtPYLW/S81ScO2f/F27VIE26YaUoPcDkcraI8gdAPH03uHBqeRecM39cJR3slrGBzPq2Aiz5H8CDEQ6oifLyQSP3jwM0afcVVSC1HWg8IhRQ8vmjRNCYKyuinv0Cabp8oV2eTbJfMUgT6TAypRMfUxlwVpDvNhW7A/7PkSglthWRQplIqnPqixL3m8=
-# 指定nodejs版本
-# 不克隆子模块
-  git:
+    secure: MF1R4Da7eIrZuHmp6EMQHcXiqnKrETxQBUYNj92XA3mQS7pl5H14K1APv9Tajmefj5SnIldJGyyFyvIu+aH6HMzvqyiRvSkitR81epZXNLb1PRRxtzAgo7aVejRFCHpPIm1dWD6zsXlX7rdcqYvJ1NRb/OpKuwatF3MF0Fxu2p6Z6VjYmZJhdd5FBrCTmLXzDRrJOkZk2AlMOZkvgQKvEEMaCCwt1PqcoXbf9fCov4jmEVj66imJW5V2SvY6omfG6LFTugA4DhOyRq/YWWdLkiWMFibOpk0zt4jrb5gu7dnKV2Jwi7/K3QRZhdiA29+c7nh4kQTPWvcr1WAwEIFqqw6ERSFVWcaUCjNenLO1AG41SQizg5EymkYQNhXJf9WuigHmQpcQViz0O0Hvy0i3s/iKMt5IX+aWUdrhSHYM2MITptdtInGiRSN7kik1DLaZIuztnliV9wisWqNRDf18LSfDNvU5OtBIr9RvEaWNUJYyoELul1aXcdqCR4dXynLdc4FnhLCCa6EayoeWxq77oqUTBAmxlbHkTUD7O1vj3VvfOj0CgPP05cO5rJhj1DNiy69D3Zk8T2N8ZdP6sV10Bdy7AB8jtRkz3xb4Qdei2e2BmS+2Fx3a9XHTxG8Q04Z828DCLGnQZCVfb645EQR6RuTFwhsAjR/q4rG7aWdYHzQ=
+# 不克隆子仓库
+git:
   submodules: false
-# 有且只有指定分支push才出发
-  branches:
+# 设置钩子只检测blog-src分支的push变动
+branches:
   only:
   - blog-src
-# 缓存文件夹  
-  cache:
+# 设置缓存文件
+cache:
   directories:
   - node_modules
-# 准备ssh客户端环境以及克隆主题仓库
-  before_install:
-- openssl aes-256-cbc -K $encrypted_f1eb9b6ab60a_key -iv $encrypted_f1eb9b6ab60a_iv
-  -in .travis/web-bj-01_id_rsa.enc -out ~/.ssh/web-bj-01_id_rsa -d
+#在构建之前安装ssh环境，hexo环境和主题。
+before_install:
+- openssl aes-256-cbc -K $encrypted_f1eb9b6ab60a_key -iv $encrypted_f1eb9b6ab60a_iv -in .travis/web-bj-01_id_rsa.enc -out ~/.ssh/web-bj-01_id_rsa -d
 - chmod 600 ~/.ssh/web-bj-01_id_rsa
 - eval $(ssh-agent)
 - ssh-add ~/.ssh/web-bj-01_id_rsa
@@ -28,15 +22,15 @@ notifications:
 - npm install -g hexo-cli
 - rm -rf themes/next
 - git clone -b my-next https://github.com/miyunda/hexo-theme-next.git themes/next
-# 安装插件，这里根据实际需要编辑
+#安装需要的插件
 install:
 - npm install
 - npm install hexo-deployer-git --save
 - npm install hexo-generator-searchdb --save
 - npm install hexo-tag-dplayer --save
-# 生成html网页
+#生成html静态文件
 script:
 - hexo generate
-# 部署到服务器的git仓库
+#部署到web服务器
 after_script:
 - hexo deploy
