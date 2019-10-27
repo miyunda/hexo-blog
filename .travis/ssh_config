@@ -1,0 +1,7 @@
+
+Host web-bj-01
+	HostName web-bj-01.beijing2b.com
+	User git
+	StrictHostKeyChecking no
+	IdentityFile ~/.ssh/web-bj-01_id_rsa
+	IdentitiesOnly yes
