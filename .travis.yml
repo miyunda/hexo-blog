@@ -19,7 +19,7 @@ notifications:
   - node_modules
 # 准备ssh客户端环境以及克隆主题仓库
   before_install:
-- openssl aes-256-cbc -K $encrypted_xxxxx_key -iv $encrypted_yyyyy_iv
+- openssl aes-256-cbc -K $encrypted_f1eb9b6ab60a_key -iv $encrypted_f1eb9b6ab60a_iv
   -in .travis/web-bj-01_id_rsa.enc -out ~/.ssh/web-bj-01_id_rsa -d
 - chmod 600 ~/.ssh/web-bj-01_id_rsa
 - eval $(ssh-agent)
