@@ -30,7 +30,7 @@ tags:
  - [x] 一个Linux 服务器，配置最低的VPS就行
  - [x] 一个DNS域名
  - [ ] 一个SSL证书
- - [ ] 一个文本编辑器。我在用的是[VSCode](https://code.visualstudio.com/)，您要是就用记事本也不是不可以。
+ - [ ] 文本编辑器[VSCode](https://code.visualstudio.com/)，您要是就用记事本也不是不可以。
   
 ---
 ### 0x01 web服务器端配置 （远端）
@@ -326,6 +326,12 @@ deploy:
 然后按照[官网文档]](https://hexo.io/zh-cn/docs/commands)的指导开始配置，写个新文章或者改了什么配置的话就可以部署到您的远端了。
 ```bash
 hexo g #渲染生成静态html页面
+```
+```bash
+hexo s #在本地的TCP4000端口开启web服务器预览
+```
+满意之后
+```bash
 hexo d #通过git push放到远端仓库
 ```
 然后webhook会在把仓库的内容部署到web服务器文件夹，一个网站就建好了。
