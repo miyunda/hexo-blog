@@ -158,9 +158,9 @@ server {
 }
 server
 {
-  # 80端口是http默认接口
-  listen 80;
-  server_name www.beijing2b.com;
+  # 80端口是http默认接口 此处禁止IP直接访问
+  listen 80 default;
+  #server_name www.beijing2b.com;
   # 在这里我做了跳转，木有证书的别这么做
   rewrite ^(.*) https://$host$1 permanent;
 }
