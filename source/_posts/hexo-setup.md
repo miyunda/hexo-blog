@@ -307,7 +307,7 @@ npm install
 npm install hexo-deployer-git --save
 ```
 
-​	修改本地ssh客户端配置，编辑`~/.ssh.config`加入以下内容
+​	修改本地ssh客户端配置，编辑`~/.ssh/config`加入以下内容
 
 	Host web-bj-01 # 一个力求方便的别名
 		HostName web-bj-01.beijing2b.com # 远端的FQDN
