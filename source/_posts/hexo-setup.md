@@ -1,7 +1,14 @@
 ---
 title: Hexo 安装（初级）
 date: 2019-05-27 15:18:36
+categories:
+  - 信息技术
 tags:
+  - Hexo
+  - nginx
+  - git
+  - markdown
+---
 ---
 
 >莫言行路难
@@ -16,7 +23,7 @@ tags:
 <!-- more -->
 
 大家好，强行加了个定场诗，我也不懂是什么意思。
-### 0x00 Hexo简介
+### Hexo简介
 >快速、简洁且高效的博客框架
 
 静态网站框架，有Hexo也有[Hugo](https://gohugo.io/)，后者多少需要些动手能力；而前者全傻瓜化，比较适合我这种动手能力极差的人。~~虽然Hexo渲染效率低下，我也忍了~~。
@@ -24,7 +31,7 @@ tags:
 这里不讨论Hexo的具体设置，[官网文档](https://hexo.io/zh-cn/docs/)有介绍。
 关于Hexo的工作流程，我画了个简单的示意图。
 ![Hexo-setup-dataflow](https://cdn.beijing2b.com/Hexo-setup-20191027112743.jpg)
-​这里把运行`web`服务与`git`服务的服务器称为**远端**， 运行Hexo与`git`客户端的工作站称为**本地**。
+​这里把运行web服务与git服务的服务器称为**远端**， 运行Hexo与git客户端的工作站称为**本地**。
 需要材料如下
  - [x] 随便什么PC —— MacOS、 Windows、Linux
  - [x] 一个Linux 服务器，配置最低的VPS就行
@@ -33,7 +40,7 @@ tags:
  - [ ] 文本编辑器[VSCode](https://code.visualstudio.com/)，您要是就用记事本也不是不可以。
   
 ---
-### 0x01 web服务器端配置 （远端）
+### web服务器端配置（远端）
 
 <details>
 <summary>CentOS</summary>
@@ -90,10 +97,6 @@ services: ssh https http
 
 **安装nginx**
 
-​	引入源
-```bash
-rpm -Uvh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
-```
 ​	安装
 ```bash
 apt install nginx -y
@@ -106,6 +109,7 @@ apt install ufw -y
 ​	添加规则
 ```bash
 ufw allow 'Nginx HTTP'
+ufw allow 'Nginx HTTPS'
 ufw allow 'SSH'
 ```
 ​	使新规则生效
@@ -113,10 +117,21 @@ ufw allow 'SSH'
 ufw active
 ufw enable
 ```
+  看看状态
+```bash
+systemctl status nginx
+```
 ​</details>
 ---
 #### 配置虚拟主机
-```conf
+​	为站点生成配置文件
+```bash
+nano /etc/nginx/sites-available/hexo
+ln -s /etc/nginx/sites-available/hexo /etc/nginx/sites-enabled/
+nano /etc/nginx/sites-available/hexo
+```
+​	配置文件内容
+```json
 server {
   #侦听443端口，这个是https访问端口
   listen    443;
@@ -158,9 +173,9 @@ server {
 }
 server
 {
-  # 80端口是http默认接口 此处禁止IP直接访问
-  listen 80 default;
-  #server_name www.beijing2b.com;
+  # 80端口是http默认接口
+  listen 80;
+  server_name www.beijing2b.com;
   # 在这里我做了跳转，木有证书的别这么做
   rewrite ^(.*) https://$host$1 permanent;
 }
@@ -191,23 +206,6 @@ drwxr-xr-x 3 root root 4096 May 20 21:24 ..
 ```bash
 chmod -R 755 /var/www/hexo
 chmod 644 /var/www/hexo/index.html
-```
-​	为站点生成配置文件
-```bash
-touch nano /etc/nginx/sites-available/hexo
-ln -s /etc/nginx/sites-available/hexo /etc/nginx/sites-enabled/
-nano /etc/nginx/sites-available/hexo
-```
-​	配置文件内容
-```json
-server {
-    listen       80;
-    server_name web-bj-01.beijing2b.com; # 此处填写网站的FQDN
-    location / {
-        root   /var/www/hexo;
-        index  index.html index.htm;
-    }
-}
 ```
 ​	测试配置文件
 ```bash
@@ -267,14 +265,19 @@ chsh git # 默认提示即是上面找到的路径，直接回车即可。
 ```
 
 生成网页仓库
-舒适化仓库文件夹
-```mkdir /home/git/repo && cd /home/git/repo
+初始化仓库文件夹
+```bash
+mkdir /home/git/repo && cd /home/git/repo
 git init --bare hexo.git
 ```
 生成webhook钩子，让服务器知道收到新文件后该做什么
 ```bash
 cd hexo.git/hooks/
 nano post-receive
+```
+`post-receive`内容
+```bash
+git --work-tree=/var/www/hexo --git-dir=/home/git/repo/hexo.git checkout -f
 ```
 赋予相应权限
 ```bash
@@ -323,7 +326,7 @@ deploy:
   branch: master
 ```
 
-然后按照[官网文档]](https://hexo.io/zh-cn/docs/commands)的指导开始配置，写个新文章或者改了什么配置的话就可以部署到您的远端了。
+然后按照[官网文档](https://hexo.io/zh-cn/docs/commands)的指导开始配置，写个新文章或者改了什么配置的话就可以部署到您的远端了。
 ```bash
 hexo g #渲染生成静态html页面
 ```

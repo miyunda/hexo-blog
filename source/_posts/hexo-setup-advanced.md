@@ -1,10 +1,12 @@
 ---
 title: 利用Travis部署Hexo网站
+categories:
+  - 信息技术
 tags:
-  -CI/CD
-  -Travis
-  -GitHub
-  -Hexo
+  - CI/CD
+  - Travis
+  - GitHub
+  - Hexo
 ---
 >初闻征雁已无蝉
 >百尺楼南水接天
@@ -19,16 +21,19 @@ tags:
 建议阅读本文**之前**阅读[我上一篇Hexo文章](https://www.beijing2b.com/hexo-setup/)
 建议阅读本文**之前**阅读[我上一篇Hexo文章](https://www.beijing2b.com/hexo-setup/)
 建议阅读本文**之前**阅读[我上一篇Hexo文章](https://www.beijing2b.com/hexo-setup/)
-前情提要：已经有一个本地工作站，它把作者写的markdown格式文件通过nodejs渲染成HTML文件，并推送到远端的自建git服务上，然后git服务会将收到的网页发布到`web`服务器上，这是一套完整的Hexo流程。 
-今天我们将这个流程变得削微复杂一丢丢，利用~~同性交友网站~~GitHub管理源码以及利用`CI/CD`渲染网页并推送到自建仓库。
+前情提要：已经有一个本地工作站，它把作者写的markdown格式文件通过nodejs渲染成HTML文件，并推送到远端的自建git服务上，然后git服务会将收到的网页发布到web服务器上，这是一套完整的Hexo流程。
+今天我们将这个流程变得削微复杂一丢丢，利用~~同性交友网站~~GitHub管理源码以及利用CI/CD渲染网页并推送到自建仓库。
 ![hexo-setup-advanced](https://cdn.beijing2b.com/hexo-setup-advanced-2019102921210.jpg)
+
+---
 
 #### 远程仓库
 
-1. 到GitHub去注册个账号，为网站创建一个源码仓库，这里将存放写作者提交的markdown文章。仓库大概是这样的 `git@github.com:miyunda/hexo-blog.git` 
-另外建立一个分支`blog-src`并且设置为默认分支。
+1. 到GitHub去注册个账号，为网站创建一个源码仓库，这里将存放写作者提交的markdown文章。大概是[这样的](https://github.com/miyunda/hexo-blog.git)
+。另外建立一个分支`blog-src`并且设置为默认分支。
 
-2. 去把[theme Next](https://github.com/theme-next/hexo-theme-next)岔回来，这将是源码仓库的子模块仓库。暂且叫它主题仓库，看起来是这样的 `git@github.com:miyunda/hexo-theme-next.git`。这个仓库就用`master`分支就行了 .
+2. 去把[theme Next](https://github.com/theme-next/hexo-theme-next)岔回来，这将是源码仓库的子模块仓库。暂且叫它主题仓库，看起来是[这样的](https://github.com/miyunda/hexo-theme-next.git)。这个仓库就用`master`分支就行了。
+
 <details>
 <summary>新手点开看图</summary>
 
@@ -38,8 +43,9 @@ tags:
 </details>
 
 3. 生成`SSH`密钥，每个仓库都有一对，这两个密钥是GitHub推/拉代码验证身份用的。
+
 <details>
-<summary>点开看命令<summary>
+<summary>点开看命令</summary>
 
 ```bash
 ssh-keygen -t rsa -b 4096 -C "404@beijing2b.com" #邮件地址写自己的
@@ -54,7 +60,8 @@ Enter file in which to save the key (/Users/yu/.ssh/id_rsa): /Users/yu/.ssh/hexo
 </details>
 
 4. 把`~/.ssh/hexo-blog.pub`的内容复制粘贴到源码仓库的密钥设置中；主题仓库的密钥在`~/.ssh/hexo-next.pub`，也是一样要粘贴在主题仓库的密钥设置中。
-​     - [x] Allow write access
+​ 
+- [x] Allow write access
 
 5. 配置本地工作站的SSH客户端
 
@@ -79,7 +86,8 @@ Enter file in which to save the key (/Users/yu/.ssh/id_rsa): /Users/yu/.ssh/hexo
    ```bash
    ssh -T git@blog-github
    Hi miyunda/hexo-blog! You've successfully authenticated, but GitHub does not provide shell access.
-
+```
+```bash
    ssh -T git@next-github
    Hi miyunda/next-blog! You've successfully authenticated, but GitHub does not provide shell access.
   ```
@@ -111,16 +119,17 @@ public/
    ```
 
 4. 完成初始设置
- 把`themes/next/_config.yml`里面的**全部**内容 复制粘贴到根文件夹的`_config.yml`,并缩进**两个**空格，
+ 把`themes/next/_config.yml`里面的**全部**内容 复制粘贴到根文件夹的`_config.yml`,并缩进**两个**空格，在VSCode里面是<kbd>Ctrl</kbd>+<kbd>]</kbd>或者<kbd>Cmd</kbd>+<kbd>]</kbd>
 粘贴进去的内容上面加一行`theme_config:`，酱紫主题的设置文件就与其他文件分开了。以后升级主题痛苦小很多。
+![SampleofConfig](https://cdn.beijing2b.com/hexo-setup-advanced-20191029221726.jpg)
 5. 设置GitHub用户信息
 ```bash
-git config user.name "blog source  updater"
+git config user.name "blog updater"
 git config user.email "hexo-blog-updater@beijing2b.com"
 ```
   进入到主题文件夹`themes\next`同样设置
   ```bash
-git config user.name "blog theme updater"
+git config user.name "theme updater"
 git config user.email "hexo-theme-updater@beijing2b.com"
 ```
 
@@ -132,7 +141,7 @@ git config user.email "hexo-theme-updater@beijing2b.com"
 ![SlackToken](https://cdn.beijing2b.com/hexo-setup-advanced-20191028222628.jpg)
 
 2. 打开[Travis网站](https://travis-ci.com)
-用`GitHub`账号登录
+用GitHub账号登录
 选择我们的源码仓库
 ![TravisandGitHub](https://cdn.beijing2b.com/hexo-setup-advanced-20191028222944.jpg)
 
@@ -156,20 +165,20 @@ gem install travis
 ```bash
 travis login --pro # 用GitHub账号登录
 ```
-把我们自建`git`服务的服务器密钥加密，在源码根文件夹执行
+把我们自建git服务的服务器密钥加密，在源码根文件夹执行
 ```bash
 travis encrypt-file ~/.ssh/web-bj-01_id_rsa --add --com
 mv web-bj-01_id_rsa.enc .travis
 ```
-把`Slack`给的`token`也加密
+把Slack给的token也加密
 ```bash
 travis encrypt "beijing2b:YOURSLACKTOKEN" --add notifications.slack
 ```
 然后编辑`.travis/ssh_config`，内容参照本文开头提到的[上一篇Hexo文章](https://www.beijing2b.com/hexo-setup/)。
-5. 编辑`.travis.yml`。这个文件是最核心的，它描述了当代码更新之后`Travis`的行为。这时您应该已经注意到前面两条命令生成的内容被自动加到这个文件里了。目前可能有个bug，它在添加的时候会额外加蜜汁转义。需要您自行纠正。
+5. 编辑`.travis.yml`。这个文件是最核心的，它描述了当代码更新之后`Travis`的行为。这时您应该已经注意到前面两条命令生成的内容被自动加到这个文件里了。目前可能有个bug，它在添加的时候会额外加蜜汁转义，需要您自行纠正。
 
 <details>
-<summary>点开看内容<summary>
+<summary>点开看内容</summary>
 
 ```yaml
 notifications:
@@ -219,11 +228,11 @@ after_script:
    git commit -am "初始源码和主题"
    ```
 
-7. 送到`Github`仓库去
+7. 送到GitHub仓库去
 ```bash
 git push origin blog-src
 ```
-这时`Travis`就会检测到仓库有更新，它就开始工作了。完成之后还会通知。
+这时Travis就会检测到仓库有更新，它就开始工作了。完成之后还会通知。
 ![SlackBot](https://cdn.beijing2b.com/hexo-setup-advanced-20191028223633.jpg)
 
 ##### 用法
@@ -232,7 +241,7 @@ git push origin blog-src
 git commit -m "改动内容简介" # 在源码根文件夹执行
 git push
 ```
-2. 改了主题里面的文件的话呢（一般不会改的），要让我们源码仓库更新一次。才会触发`CI/CD`.
+2. 改了主题里面的文件的话呢（一般不会改的），要让我们源码仓库更新一次。才会触发。
 ```bash
 git commit -m "改动内容简介" # 在themes/next主题文件夹执行
 git push #作者会经常更新，我们可以把上一句省了，这句用pull就好了
@@ -243,6 +252,6 @@ commit -m "track master SHA1 gitlink"
 git push
 ```
 3. 换了新电脑
-参照上面**本地文件夹**的步骤
+参照上面[本地文件夹](https://www.beijing2b/hexo-setup-advanced/#本地文件夹)的步骤
 完，感谢观看。
 [点击围观本项目](https://travis-ci.com/miyunda/hexo-blog)
