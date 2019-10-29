@@ -129,9 +129,9 @@ theme_config:
     small: https://cdn.beijing2b.com/image/png/favicon-16x16.png
     medium: https://cdn.beijing2b.com/image/png/favicon-32x32.png
     apple_touch_icon: https://cdn.beijing2b.com/image/png/apple-touch-icon.png
-    safari_pinned_tab: "/images/safari-pinned-tab.svg" color="#5bbad5">
-    #android_manifest: /images/manifest.json
-    #ms_browserconfig: /images/browserconfig.xml
+    safari_pinned_tab: /images/safari-pinned-tab.svg
+    android_manifest: /images/manifest.json
+    ms_browserconfig: /images/browserconfig.xml
 
   # hexo-generator-feed required for rss support. Leave rss as blank to use site's feed link.
   # Set rss to false to disable feed link. Set rss to specific value if you have burned your feed already.
