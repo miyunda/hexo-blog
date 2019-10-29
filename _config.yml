@@ -5,7 +5,7 @@
 # Site
 title: Beijing 2B
 subtitle: Or not 2B
-description: 来了？老弟
+description: 吃了么您呐
 keywords: 米云达
 author: 米云达
 language: zh-CN
@@ -41,7 +41,7 @@ future: true
 highlight:
   enable: true
   line_number: false
-  auto_detect: false
+  auto_detect: true
   tab_replace:
 
 # Home page setting
@@ -129,7 +129,7 @@ theme_config:
     small: https://cdn.beijing2b.com/image/png/favicon-16x16.png
     medium: https://cdn.beijing2b.com/image/png/favicon-32x32.png
     apple_touch_icon: https://cdn.beijing2b.com/image/png/apple-touch-icon.png
-    safari_pinned_tab: https://cdn.beijing2b.com/image/png/android-chrome-512x512.png
+    safari_pinned_tab: "/image/safari-pinned-tab.svg" color="#5bbad5">
     #android_manifest: /images/manifest.json
     #ms_browserconfig: /images/browserconfig.xml
 
