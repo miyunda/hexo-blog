@@ -266,6 +266,6 @@ git checkout master
 git merge upstream/msater
 ```
 4. 换了新电脑
-参照上面[本地文件夹](https://www.beijing2b/hexo-setup-advanced/#本地文件夹)的步骤
+参照上面[本地文件夹](https://www.beijing2b.com/hexo-setup-advanced/#本地文件夹)的步骤
 完，感谢观看。
 [点击围观本项目](https://travis-ci.com/miyunda/hexo-blog)

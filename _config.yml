@@ -185,7 +185,7 @@ theme_config:
   creative_commons:
     license: by-nc-sa
     sidebar: false
-    post: false
+    post: true
     language: deed.zh
 
 
@@ -255,7 +255,7 @@ theme_config:
   # Sidebar Avatar
   avatar:
     # Replace the default image and set the url here.
-    url: https://cdn.beijing2b.com/image/jpg/avatar.jpg
+    url: https://cdn.beijing2b.com/image/png/avatar.png
     # If true, the avatar would be dispalyed in circle.
     rounded: false
     # If true, the avatar would be rotated with the cursor.
@@ -441,7 +441,7 @@ theme_config:
   safari_rainbow: false
 
   # Custom Logo (Do not support scheme Mist)
-  custom_logo: #/uploads/custom-logo.jpg
+  custom_logo: https://cdn.beijing2b.com/image/jpg/avatar.jpg
 
   codeblock:
     # Code Highlight theme
@@ -454,7 +454,7 @@ theme_config:
       # Show text copy result.
       show_result: true
       # Available values: default | flat | mac
-      style: mac
+      style: flat
 
   back2top:
     enable: true
