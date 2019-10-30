@@ -221,12 +221,12 @@ after_script:
 
 </details>
 ###### 加密储存
-由于API Key什么的都是不能被别人知道的，所以我们不能把他们直接存在`_config.yml里面
+由于API Key什么的都是不能被别人知道的，所以我们不能把他们直接存在`_config.yml`里面。
 Travis提供了环境变量，仓库范围内有效——各分支可以共享或不共享。
 ![TravisEnv](https://cdn.beijing2b.com/hexo-setup-advanced-20191030213941.jpg)
 Travis会在每次构建的时候帮我们传递到虚拟机里。
 以上图为例，我的`_config.yml`里面有
-···yaml
+```yaml
   valine:
     appId: valineappId
     appKey: valineappKey
