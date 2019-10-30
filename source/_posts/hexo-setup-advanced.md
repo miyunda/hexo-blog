@@ -1,5 +1,5 @@
 ---
-title: 利用Travis部署Hexo网站
+title: 利用CI/CD部署个人网站
 categories:
   - 信息技术
 tags:

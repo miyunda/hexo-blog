@@ -34,14 +34,14 @@ tags:
 ​这里把运行web服务与git服务的服务器称为**远端**， 运行Hexo与git客户端的工作站称为**本地**。
 需要材料如下
  - [x] 随便什么PC —— MacOS、 Windows、Linux
- - [x] 一个Linux 服务器，配置最低的VPS就行
+ - [x] 一个Linux 服务器，配置最低的VPS就行 或/和 [GitHub Pages 下称GP](https://pages.github.com/)
  - [x] 一个DNS域名
  - [ ] 一个SSL证书
  - [ ] 文本编辑器[VSCode](https://code.visualstudio.com/)，您要是就用记事本也不是不可以。
   
 ---
 ### web服务器端配置（远端）
-
+使用GP的可以跳过
 <details>
 <summary>CentOS</summary>
 
@@ -317,7 +317,8 @@ npm install hexo-deployer-git --save
 		User git
 		IdentityFile ~/.ssh/web-bj-01_id_rsa
 
-在hexo的文件夹找到`_config.yml`， 编辑以下段落 
+### 部署
+在hexo的文件夹找到`_config.yml`， 编辑以下段落。使用[GitHub Pages](https://pages.github.com/)的将仓库地址改下
 
 ```yaml
 deploy:
