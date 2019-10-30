@@ -42,7 +42,7 @@ tags:
 
 </details>
 
-3. 生成`SSH`密钥，每个仓库都有一对，这两个密钥是GitHub推/拉代码验证身份用的。
+3. 生成**SSH**密钥，每个仓库都有一对，这两个密钥是GitHub推/拉代码验证身份用的。
 
 <details>
 <summary>点开看命令</summary>
