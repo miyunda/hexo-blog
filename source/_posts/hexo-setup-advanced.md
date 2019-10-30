@@ -30,7 +30,7 @@ tags:
 #### 远程仓库
 
 1. 到GitHub去注册个账号，为网站创建一个源码仓库，这里将存放写作者提交的markdown文章。大概是[这样的](https://github.com/miyunda/hexo-blog.git)
-。另外建立一个分支`blog-src`并且设置为默认分支。
+。另外建立一个分支`blog-src`并且设置为默认分支。`master`分支不动，留给GitHub Pages用。
 
 2. 去把[theme Next](https://github.com/theme-next/hexo-theme-next)岔回来，这将是源码仓库的子模块仓库。暂且叫它主题仓库，看起来是[这样的](https://github.com/miyunda/hexo-theme-next.git)。这个仓库就用`master`分支就行了。
 
