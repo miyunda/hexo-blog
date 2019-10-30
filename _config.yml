@@ -126,12 +126,12 @@ theme_config:
   # ---------------------------------------------------------------
 
   favicon:
-    small: https://cdn.beijing2b.com/image/png/favicon-16x16.png
-    medium: https://cdn.beijing2b.com/image/png/favicon-32x32.png
-    apple_touch_icon: https://cdn.beijing2b.com/image/png/apple-touch-icon.png
-    safari_pinned_tab: /images/safari-pinned-tab.svg
-    android_manifest: /images/manifest.json
-    ms_browserconfig: /images/browserconfig.xml
+    small: /images/favicon-16x16-next.png
+    medium: /images/favicon-32x32-next.png
+    apple_touch_icon: /images/apple-touch-icon.png
+    safari_pinned_tab: /images/logo.svg
+    #android_manifest: /images/manifest.json
+    #ms_browserconfig: /images/browserconfig.xml
 
   # hexo-generator-feed required for rss support. Leave rss as blank to use site's feed link.
   # Set rss to false to disable feed link. Set rss to specific value if you have burned your feed already.
@@ -145,11 +145,11 @@ theme_config:
     icon:
       # Icon name in Font Awesome. See: https://fontawesome.com/v4.7.0/icons/
       # `heart` is recommended with animation in red (#ff0000).
-      name: user
+      name: heart
       # If you want to animate the icon, set it to true.
       animated: false
       # Change the color of icon, using Hex Code.
-      color: "#808080"
+      color: "#ff0000"
 
     # If not defined, `author` from Hexo `_config.yml` will be used.
     copyright:
@@ -186,7 +186,7 @@ theme_config:
     license: by-nc-sa
     sidebar: false
     post: false
-    language:
+    language: deed.zh
 
 
   # ---------------------------------------------------------------
@@ -206,8 +206,7 @@ theme_config:
 
   # Usage: `Key: /link/ || icon`
   # Key is the name of menu item. If the translation for this item is available, the translated text will be loaded, otherwise the Key name will be used. Key is case-senstive.
-  # Value before `||` delimiter is the target link.
-  # Value after `||` delimiter is the name of Font Awesome icon. If icon (with or without delimiter) is not specified, question icon will be loaded.
+  # Value before `||` delimiter is the target link, value after `||` delimiter is the name of Font Awesome icon.
   # When running the site in a subdirectory (e.g. domain.tld/blog), remove the leading slash from link value (/archives -> archives).
   # External url should start with http:// or https://
   menu:
@@ -255,14 +254,12 @@ theme_config:
 
   # Sidebar Avatar
   avatar:
-    # In theme directory (source/images): /images/avatar.gif
-    # In site directory (source/uploads): /uploads/avatar.gif
-    # You can also use other linking images.
-    url: https://cdn.beijing2b.com/image/jpg/meta-bg.jpg #/images/avatar.gif
+    # Replace the default image and set the url here.
+    url: https://cdn.beijing2b.com/image/jpg/avatar.jpg
     # If true, the avatar would be dispalyed in circle.
     rounded: false
     # If true, the avatar would be rotated with the cursor.
-    rotated: yes
+    rotated: true
 
   # Posts / Categories / Tags in sidebar.
   site_state: true
@@ -270,12 +267,11 @@ theme_config:
   # Social Links
   # Usage: `Key: permalink || icon`
   # Key is the link label showing to end users.
-  # Value before `||` delimiter is the target permalink.
-  # Value after `||` delimiter is the name of Font Awesome icon. If icon (with or without delimiter) is not specified, globe icon will be loaded.
+  # Value before `||` delimiter is the target permalink, value after `||` delimiter is the name of Font Awesome icon.
   social:
     #GitHub: https://github.com/yourname || github
     #E-Mail: mailto:yourname@gmail.com || envelope
-    #Weibo: https://weibo.com/yourname || weibo
+    Weibo: https://weibo.com/miyunda || weibo
     #Google: https://plus.google.com/yourname || google
     #Twitter: https://twitter.com/yourname || twitter
     #FB Page: https://www.facebook.com/yourname || facebook
@@ -327,9 +323,6 @@ theme_config:
   # See: https://theme-next.org/docs/theme-settings/posts
   # ---------------------------------------------------------------
 
-  # Automatically scroll page to section which is under <!-- more --> mark.
-  scroll_to_more: true
-
   # Automatically excerpt description in homepage as preamble text.
   excerpt_description: true
 
@@ -363,12 +356,6 @@ theme_config:
 
   # Use icon instead of the symbol # to indicate the tag at the bottom of the post
   tag_icon: false
-
-  # Wechat Subscriber
-  wechat_subscriber:
-    enable: false
-    qcode: #/uploads/wechat-qcode.jpg
-    #description: Subscribe to my blog by scanning my public wechat account.
 
   # Reward (Donate)
   reward_settings:
@@ -414,7 +401,7 @@ theme_config:
 
   # TagCloud settings for tags page.
   tagcloud:
-    # All values below are same as default, change them by yourself
+    # All values below are same as default, change them by yourself.
     min: 12 # Minimun font size in px
     max: 30 # Maxium font size in px
     start: "#ccc" # Start color (hex, rgba, hsla or color keywords)
@@ -423,9 +410,6 @@ theme_config:
 
   # Google Calendar
   # Share your recent schedule to others via calendar page.
-  # API Documentation: https://developers.google.com/google-apps/calendar/v3/reference/events/list
-  # To get api_key: https://console.developers.google.com
-  # Create & manage a public Google calendar: https://support.google.com/calendar/answer/37083
   calendar:
     calendar_id: <required> # Your Google account E-Mail
     api_key: <required>
@@ -456,9 +440,6 @@ theme_config:
   # Hide sticky headers and color the menu bar on Safari (iOS / macOS).
   safari_rainbow: false
 
-  # Optimize the display of scrollbars on webkit based browsers.
-  custom_scrollbar: false
-
   # Custom Logo (Do not support scheme Mist)
   custom_logo: #/uploads/custom-logo.jpg
 
@@ -469,11 +450,11 @@ theme_config:
     highlight_theme: normal
     # Add copy button on codeblock
     copy_button:
-      enable: false
+      enable: true
       # Show text copy result.
-      show_result: false
+      show_result: true
       # Available values: default | flat | mac
-      style:
+      style: mac
 
   back2top:
     enable: true
@@ -612,8 +593,6 @@ theme_config:
 
   # Math Formulas Render Support
   math:
-    enable: false
-
     # Default (true) will load mathjax / katex script on demand.
     # That is it only render those page which has `mathjax: true` in Front-matter.
     # If you set it to false, it will load mathjax / katex srcipt EVERY PAGE.
@@ -686,7 +665,7 @@ theme_config:
     # Available values: tabs | buttons
     style: tabs
     # Choose a comment system to be displayed by default.
-    # Available values: changyan | disqus | disqusjs | facebook_comments_plugin | gitalk | livere | valine | vkontakte
+    # Available values: changyan | disqus | disqusjs | gitalk | livere | valine
     active:
     # Setting `true` means remembering the comment system selected by the visitor.
     storage: true
@@ -695,8 +674,6 @@ theme_config:
       #disqus:
       #  text: Load Disqus
       #  order: -1
-      #facebook_comments_plugin:
-      #  text: <i class="fa fa-facebook-official" aria-hidden="true"></i> facebook
       #gitalk:
       #  order: -2
 
@@ -776,33 +753,6 @@ theme_config:
   # See: https://theme-next.org/docs/third-party-services/post-widgets
   # ---------------------------------------------------------------
 
-  # Facebook SDK Support
-  facebook_sdk:
-    enable:       false
-    app_id:       # <app_id>
-    fb_admin:     # <user_id>
-    like_button:  # true
-    webmaster:    # true
-
-  # Facebook comments plugin
-  # This plugin depends on Facebook SDK.
-  # If facebook_sdk.enable is false, Facebook comments plugin is unavailable.
-  facebook_comments_plugin:
-    enable:       false
-    num_of_posts: 10    # Minimum posts num is 1
-    width:        100%  # Default width is 550px
-    scheme:       light # Default scheme is light (light or dark)
-    #post_meta_order: 0
-
-  # VKontakte API Support
-  # To get your AppID visit https://vk.com/editapp?act=create
-  vkontakte_api:
-    enable:       false
-    app_id:       # <app_id>
-    like:         true
-    comments:     true
-    num_of_posts: 10
-
   # Star rating support to each article.
   # To get your ID visit https://widgetpack.com
   rating:
@@ -820,13 +770,6 @@ theme_config:
   # See: https://theme-next.org/docs/third-party-services/statistics-and-analytics
   # ---------------------------------------------------------------
 
-  # Baidu Analytics
-  baidu_analytics: # <app_id>
-
-  # Growingio Analytics
-  # Copyright 2015-2018 GrowingIO, Inc. More info available at https://www.growingio.com
-  growingio_analytics: # <project_id>
-
   # Google Analytics
   google_analytics:
     tracking_id: # <app_id>
@@ -835,12 +778,20 @@ theme_config:
     # If you only need the pageview feature, set the following option to true to get a better performance.
     only_pageview: false
 
+  # Baidu Analytics
+  baidu_analytics: # <app_id>
+
+  # Growingio Analytics
+  growingio_analytics: # <project_id>
+
   # CNZZ count
   cnzz_siteid:
 
-  # Application Insights
-  # See: https://azure.microsoft.com/en-us/services/application-insights
-  application_insights:
+  # Tencent analytics
+  tencent_analytics: # <app_id>
+
+  # Tencent MTA
+  tencent_mta: # <app_id>
 
   # Show number of visitors to each article.
   # You can visit https://leancloud.cn to get AppID and AppKey.
@@ -873,12 +824,6 @@ theme_config:
     total_views_icon: eye
     post_views: true
     post_views_icon: eye
-
-  # Tencent analytics
-  tencent_analytics: # <app_id>
-
-  # Tencent MTA
-  tencent_mta: # <app_id>
 
 
   # ---------------------------------------------------------------

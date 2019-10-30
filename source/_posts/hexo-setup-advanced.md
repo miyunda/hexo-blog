@@ -244,14 +244,28 @@ git push
 2. 改了主题里面的文件的话呢（一般不会改的），要让我们源码仓库更新一次。才会触发。
 ```bash
 git commit -m "改动内容简介" # 在themes/next主题文件夹执行
-git push #作者会经常更新，我们可以把上一句省了，这句用pull就好了
+git push
 cd ../..
 git submodule update --remote
 git add .
 commit -m "track master SHA1 gitlink"
 git push
 ```
-3. 换了新电脑
+3. 假如主题作者更新了主题，我们还是到主题文件夹去执行
+先把人家的原版引入
+```bash
+git remote add upstream https://github.com/theme-next/hexo-theme-next.git
+```
+然后查看它的分支，注意观察这种提示 `* [new branch]      master       -> upstream/master`
+```bash
+git fetch upstream
+```
+下载
+```bash
+git checkout master
+git merge upstream/msater
+```
+4. 换了新电脑
 参照上面[本地文件夹](https://www.beijing2b/hexo-setup-advanced/#本地文件夹)的步骤
 完，感谢观看。
 [点击围观本项目](https://travis-ci.com/miyunda/hexo-blog)
