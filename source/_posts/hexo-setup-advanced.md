@@ -80,7 +80,7 @@ Enter file in which to save the key (/Users/yu/.ssh/id_rsa): /Users/yu/.ssh/hexo
 ​    UseKeychain yes
 ​    IdentityFile ~/.ssh/hexo-blog
 ```
-以上为同一个域名设置了两个别名，这是因为它们的用户名都是`git`。
+以上为同一个域名设置了两个别名，这是因为它们的用户名都是`git`。您要是嫌酱紫烦的话可以去[GitHub申请一个token](https://github.com/settings/tokens)，用token可以用Https的方式读写仓库，这里不多介绍了。
 
 6. 试试上面的配置，效果大概是这样的：
    ```bash
@@ -191,7 +191,7 @@ git:
 branches:
   only:
   - blog-src
-# 设置缓存文件夹
+# 设置缓存文件夹，缓存可能导致网页渲染出现蜜汁错误，有问题的可以把这节注释掉。
 cache:
   directories:
   - node_modules
@@ -220,6 +220,23 @@ after_script:
 ```
 
 </details>
+###### 加密储存
+由于API Key什么的都是不能被别人知道的，所以我们不能把他们直接存在`_config.yml里面
+Travis提供了环境变量，仓库范围内有效——各分支可以共享或不共享。
+![TravisEnv](https://cdn.beijing2b.com/hexo-setup-advanced-20191030213941.jpg)
+Travis会在每次构建的时候帮我们传递到虚拟机里。
+以上图为例，我的`_config.yml`里面有
+···yaml
+  valine:
+    appId: valineappId
+    appKey: valineappKey
+ ```
+使用了两个环境变量。我就得提前把这两个换成API服务商给的值。在`.travis.yml`里面就是
+```yaml
+before_install:
+- sed -i "s/valineappId/${ValineId}/g" _config.yml
+- sed -i "s/valineappKey/${ValineKey}/g" _config.yml
+```
 
 5. 随便写点什么文章，保存。
 6. 提交变更

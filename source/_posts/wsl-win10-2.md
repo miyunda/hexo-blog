@@ -3,12 +3,16 @@ title: 如何在Win10中使用NMAP
 url: 815.html
 id: 815
 categories:
-  - IT
+  - 信息技术
 date: 2018-05-26 09:52:34
 tags:
+ - NMAP
+ - WSL
 ---
 `NMAP`是一个很有用的工具，但是如何在Win10里面使用它呢？
+
 <!-- more -->
+
 ### 安装WSL
 
 先到控制面板里面把功能打开。
