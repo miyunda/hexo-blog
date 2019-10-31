@@ -284,8 +284,9 @@ git merge upstream/msater
 ```
 4. 换了新电脑
 参照上面[本地文件夹](https://beijing2b.com/hexo-setup-advanced/#本地文件夹)的步骤
+---
 完，感谢观看。
 
-![总结：所以WordPress真香~](https://cdn.beijing2b.com/hexo-setup-advanced-2019103182044.gif)
+总结：![所以WordPress真香~](https://cdn.beijing2b.com/hexo-setup-advanced-2019103182044.gif)
 
 [点击围观本项目](https://travis-ci.com/miyunda/hexo-blog)
