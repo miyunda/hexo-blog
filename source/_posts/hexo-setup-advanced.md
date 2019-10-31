@@ -237,7 +237,7 @@ before_install:
 - sed -i "s/valineappId/${ValineId}/g" _config.yml
 - sed -i "s/valineappKey/${ValineKey}/g" _config.yml
 ```
-在GitHub Pages展示网页的小伙伴就得仿照上面的样子自己把GitHUB Token存在里面了。
+在GitHub Pages展示网页的小伙伴就得仿照上面的样子自己把GitHub Token存在里面了。
 5. 随便写点什么文章，保存。
 6. 提交变更
    ```bash
