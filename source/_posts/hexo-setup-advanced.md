@@ -175,7 +175,7 @@ mv web-bj-01_id_rsa.enc .travis
 travis encrypt "beijing2b:YOURSLACKTOKEN" --add notifications.slack
 ```
 然后编辑`.travis/ssh_config`，内容参照本文开头提到的[上一篇Hexo文章](https://www.beijing2b.com/hexo-setup/)。
-5. 编辑`.travis.yml`。这个文件是最核心的，它描述了当代码更新之后`Travis`的行为。这时您应该已经注意到前面两条命令生成的内容被自动加到这个文件里了。目前可能有个bug，它在添加的时候会额外加蜜汁转义，需要您自行纠正。
+5. 编辑`.travis.yml`。这个文件是最核心的，它描述了当代码更新之后`Travis`的行为。这时您应该已经注意到前面两条命令生成的内容被自动加到这个文件里了。目前可能有个bug，它在添加的时候会xjb加多余的转义，需要您自行纠正。
 
 <details>
 <summary>点开看内容</summary>
