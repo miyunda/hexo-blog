@@ -1,6 +1,7 @@
 ---
 title: 数鸭子
 date: 2019-07-20 23:02:31
+cover: https://cdn.beijing2b.com/counting-ducks-2019103184217.jpg
 categories:
   - 贻笑大方
 tags:
