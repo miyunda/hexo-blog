@@ -18,9 +18,9 @@ tags:
 <!-- more -->
 
 阅读本文需要您了解基本的网络概念，但是不需要您会编写代码。文中涉及到的绝大多数命令行操作都可以用[VSCode](https://code.visualstudio.com/)完成。
-建议阅读本文**之前**阅读[我上一篇Hexo文章](https://www.beijing2b.com/hexo-setup/)
-建议阅读本文**之前**阅读[我上一篇Hexo文章](https://www.beijing2b.com/hexo-setup/)
-建议阅读本文**之前**阅读[我上一篇Hexo文章](https://www.beijing2b.com/hexo-setup/)
+建议阅读本文**之前**阅读[我上一篇Hexo文章](https://beijing2b.com/hexo-setup/)
+建议阅读本文**之前**阅读[我上一篇Hexo文章](https://beijing2b.com/hexo-setup/)
+建议阅读本文**之前**阅读[我上一篇Hexo文章](https://beijing2b.com/hexo-setup/)
 前情提要：已经有一个本地工作站，它把作者写的markdown格式文件通过nodejs渲染成HTML文件，并推送到远端的自建git服务上，然后git服务会将收到的网页发布到web服务器上，这是一套完整的Hexo流程。
 今天我们将这个流程变得削微复杂一丢丢，利用~~同性交友网站~~GitHub管理源码以及利用CI/CD渲染网页并推送到自建仓库。
 ![hexo-setup-advanced](https://cdn.beijing2b.com/hexo-setup-advanced-2019102921210.jpg)
@@ -174,7 +174,7 @@ mv web-bj-01_id_rsa.enc .travis
 ```bash
 travis encrypt "beijing2b:YOURSLACKTOKEN" --add notifications.slack
 ```
-然后编辑`.travis/ssh_config`，内容参照本文开头提到的[上一篇Hexo文章](https://www.beijing2b.com/hexo-setup/)。
+然后编辑`.travis/ssh_config`，内容参照本文开头提到的[上一篇Hexo文章](https://beijing2b.com/hexo-setup/)。
 5. 编辑`.travis.yml`。这个文件是最核心的，它描述了当代码更新之后`Travis`的行为。这时您应该已经注意到前面两条命令生成的内容被自动加到这个文件里了。目前可能有个bug，它在添加的时候会xjb加多余的转义，需要您自行纠正。
 
 <details>
@@ -283,7 +283,7 @@ git checkout master
 git merge upstream/msater
 ```
 4. 换了新电脑
-参照上面[本地文件夹](https://www.beijing2b.com/hexo-setup-advanced/#本地文件夹)的步骤
+参照上面[本地文件夹](https://beijing2b.com/hexo-setup-advanced/#本地文件夹)的步骤
 完，感谢观看。
 
 ![总结：所以WordPress真香~](https://cdn.beijing2b.com/hexo-setup-advanced-2019103182044.gif)
