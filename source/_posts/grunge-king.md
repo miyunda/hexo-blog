@@ -1,6 +1,7 @@
 ---
 title: 邋遢大王
 date: 2019-06-28 22:33:41
+cover: https://cdn.beijing2b.com/grunge-king-20191031165337.jpg
 categories:
   - 贻笑大方
 tags:
