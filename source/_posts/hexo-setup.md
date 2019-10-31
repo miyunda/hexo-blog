@@ -133,7 +133,7 @@ nano /etc/nginx/sites-available/hexo
 ​	配置文件内容
 ```json
 server {
-  #侦听443端口，这个是https访问端口
+  #侦听443端口，这个是https访问端口，不想用证书的设置为80
   listen    443;
   #域名
   server_name  www.beijing2b.com;
