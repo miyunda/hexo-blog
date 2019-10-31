@@ -35,7 +35,7 @@ tags:
 需要材料如下
  - [x] 随便什么PC —— MacOS、 Windows、Linux
  - [x] 一个Linux 服务器，配置最低的VPS就行 或/和 [GitHub Pages 下称GP](https://pages.github.com/)
- - [x] 一个DNS域名
+ - [ ] 一个DNS域名
  - [ ] 一个SSL证书
  - [ ] 文本编辑器[VSCode](https://code.visualstudio.com/)，您要是就用记事本也不是不可以。
   
@@ -338,5 +338,5 @@ hexo s #在本地的TCP4000端口开启web服务器预览
 ```bash
 hexo d #通过git push放到远端仓库
 ```
-然后webhook会在把仓库的内容部署到web服务器文件夹，一个网站就建好了。
+然后webhook会把仓库的内容部署到web服务器文件夹，一个网站就建好了。
 感谢观赏。

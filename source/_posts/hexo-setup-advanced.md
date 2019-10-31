@@ -13,11 +13,11 @@ tags:
 >青女素娥俱耐冷
 >月中霜里斗婵娟
 
-大家好，CI/CD是个热门话题，我也凑个热闹。
+大家好，CI/CD是个热门话题。
 
 <!-- more -->
 
-本人能力一般，水平有限，还望各位不吝赐教。阅读本文需要您了解基本的网络概念，但是不需要您会编写代码。文中涉及到的绝大多数命令行操作都可以用[VSCode](https://code.visualstudio.com/)完成。
+阅读本文需要您了解基本的网络概念，但是不需要您会编写代码。文中涉及到的绝大多数命令行操作都可以用[VSCode](https://code.visualstudio.com/)完成。
 建议阅读本文**之前**阅读[我上一篇Hexo文章](https://www.beijing2b.com/hexo-setup/)
 建议阅读本文**之前**阅读[我上一篇Hexo文章](https://www.beijing2b.com/hexo-setup/)
 建议阅读本文**之前**阅读[我上一篇Hexo文章](https://www.beijing2b.com/hexo-setup/)
@@ -286,4 +286,7 @@ git merge upstream/msater
 4. 换了新电脑
 参照上面[本地文件夹](https://www.beijing2b.com/hexo-setup-advanced/#本地文件夹)的步骤
 完，感谢观看。
+
+![总结：所以WordPress真香~](https://cdn.beijing2b.com/hexo-setup-advanced-2019103182044.gif)
+
 [点击围观本项目](https://travis-ci.com/miyunda/hexo-blog)
