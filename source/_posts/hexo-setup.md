@@ -126,7 +126,7 @@ systemctl status nginx
 #### 配置虚拟主机
 ​	为站点生成配置文件
 ```bash
-nano /etc/nginx/sites-available/hexo
+touch /etc/nginx/sites-available/hexo
 ln -s /etc/nginx/sites-available/hexo /etc/nginx/sites-enabled/
 nano /etc/nginx/sites-available/hexo
 ```
