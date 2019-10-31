@@ -289,6 +289,6 @@ git merge upstream/msater
 
 ### 总结
 WordPress真香!
-[所以WordPress真香~](https://cdn.beijing2b.com/hexo-setup-advanced-2019103182044.gif)
+![所以WordPress真香~](https://cdn.beijing2b.com/hexo-setup-advanced-2019103182044.gif)
 
 [点击围观本项目](https://travis-ci.com/miyunda/hexo-blog)
