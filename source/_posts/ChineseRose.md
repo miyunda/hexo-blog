@@ -1,7 +1,7 @@
 ---
 title: 月季赞
 date: 2019-11-01 16:38:38
-cover:https://cdn.beijing2b.com/ChineseRose-2019111164059.jpg
+cover: https://cdn.beijing2b.com/ChineseRose-2019111164059.jpg
 categories:
   - 贻笑大方
 tags:
