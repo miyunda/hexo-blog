@@ -39,4 +39,9 @@ tags:
 一年四季
 永远在身边
 
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=110 src="//music.163.com/outchain/player?type=1&id=1400436702&auto=1&height=90"></iframe>
+[猪厂链接](https://music.163.com/#/song?id=1400436702)
+
+我自己的链接
+ {% aplayer 月季赞 米云达 https://cdn.beijing2b.com/music/mp3/chinesesrose.mp3 %}
+
+感谢收听
