@@ -1,0 +1,42 @@
+---
+title: 月季赞
+date: 2019-11-01 16:38:38
+cover:https://cdn.beijing2b.com/ChineseRose-2019111164059.jpg
+categories:
+  - 贻笑大方
+tags:
+---
+月季花，就像北京的项链。不争奇斗艳，就像你我一样，低调地盛开。
+来听歌吧。
+
+
+<!-- more -->
+
+作曲 : 米云达
+作词 : 米云达
+一场秋雨一场寒
+迷迷茫茫看不远
+当你开车堵在二环
+你要往哪er看
+隔离带的中间
+一朵朵笑脸
+她们天真又烂漫
+仿佛气温已回暖
+春天她怒放
+寒冬也不休眠
+一年四季
+永远在身边
+花落花开无间断
+春来春去不相关
+都说花无十日红
+此花无日不春风
+悄悄映入我眼帘
+从不遮挡谁视线
+从来不与人竞好
+从来不与月争圆
+春天她怒放
+寒冬也不休眠
+一年四季
+永远在身边
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=110 src="//music.163.com/outchain/player?type=1&id=1400436702&auto=1&height=90"></iframe>
