@@ -27,6 +27,7 @@ tags:
 水狐就是这方面的老字号，功能和FF差不多——它是基于FF公开的源代码编译的，具体分为两款：
 - 水狐经典版 Waterfox Classic
 >This branch is the legacy branch. There are no plans to retire this branch, and is going to be actively maintainted, the same as current.
+
 作者在博客中承诺将持续维护经典版
 - 水狐主流版 Waterfox Current
 
