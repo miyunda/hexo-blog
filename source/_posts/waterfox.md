@@ -45,6 +45,8 @@ tags:
 
 总结，Waterfox是一款适合我工作用的浏览器，假如您也不需要最新功能，而是喜欢旧版本，并且讨厌数据被收集上传，您可以试试Waterfox. 但是用于日常生活的话可能您不想选择Waterfox Classic——它甚至连[JetStream2测试](https://browserbench.org/JetStream/)都跑不完。
 
+下载地址：
+https://www.waterfox.net/releases/
 
 EoF
 
