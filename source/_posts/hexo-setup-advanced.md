@@ -1,5 +1,6 @@
 ---
 title: 利用CI/CD部署个人网站
+date: 2019-10-28 15:18:36
 categories:
   - 信息技术
 tags:
