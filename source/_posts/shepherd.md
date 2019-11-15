@@ -1,7 +1,7 @@
 ---
 title: 御弟哥哥，留下来一块儿放羊吧
 date: 2019-11-11 11:11:11
-cover: https://cdn.beijing2b.com/shepherd-20191115161558.jpg
+cover: https://cdn.beijing2b.com/shepherd-2019111517566.jpg
 categories:
   - 贻笑大方
 tags:
