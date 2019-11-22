@@ -152,14 +152,19 @@ found 1 connections:
 
 Connection to lighthouse.beijing2b.com port 4242 [udp/*] succeeded!
 ```
+
 #### win10 节点
+
 ##### 获取软件包
 
 https://github.com/slackhq/nebula/releases/download/v1.0.0/nebula-windows-amd64.tar.gz
 
 ##### 安装TAP驱动
+
 去[OpenVPN官网](https://openvpn.net/community-downloads/) 下载驱动并安装
+
 ##### 配置
+
 然后编辑一个 `win10-config.yaml`并且把之前准备好的 `ca.crt`、`win10.crt`和`win10.key`复制过来，记住**不要**把`ca.key`也复制过来。
 内容大概是：
 ```yaml
@@ -219,6 +224,7 @@ firewall:
       proto: any
       host: any
 ```
+
 ##### 使用
 
 用管理员运行
@@ -227,7 +233,9 @@ firewall:
 time="2019-11-22T11:13:34+08:00" level=info msg="Handshake message sent" handshake="map[stage:1 style:ix_psk0]" initiatorIndex=701009003 remoteIndex=0 udpAddr="154.8.236.43:4242" vpnIp=192.168.250.1
 time="2019-11-22T11:13:34+08:00" level=info msg="Handshake message received" durationNs=345766400 handshake="map[stage:2 style:ix_psk0]" initiatorIndex=701009003 remoteIndex=701009003 responderIndex=4122392781 udpAddr="154.8.236.43:4242" vpnIp=192.168.250.1
 ```
+
 #### Buf节点
+
 与“灯塔”安装获取软件包相同。
 然后复制`ca.crt`、`buf.crt`和`buf.key`过来并编辑`buf-config.yaml`
 与`win10-config.yaml`不同之处主要在于：
@@ -247,6 +255,7 @@ pki:
 ![ping值开销大](https://cdn.beijing2b.com/nebula-20191122185527.PNG)
 
 #### 总结
+
 优点：
 - 配置简单
 - 对“服务器”性能要求不高
@@ -259,6 +268,7 @@ pki:
 
 总之呢，这玩意既然把网连上了，怎么玩就看各位想象力了。
 感谢观看，本文完。
+
 ---
 
 <details>
