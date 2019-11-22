@@ -164,7 +164,7 @@ firewall:
 然后运行下试试
 
 ```bash
-./nebula -config /etc/nebula/lighthouse.yaml
+./nebula -config /etc/nebula/lighthouse-config.yaml
 ```
 
 “灯塔”可能需要配置防火墙，放开UDP4242入站；VPS还需配置安全组。不同的厂家不一样，大概是这样：
@@ -334,7 +334,7 @@ pki:
 ```bash
 apt-get install privoxy -y
 
-vi /etc/privoxy/config
+nano /etc/privoxy/config
 ```
 
 ```
