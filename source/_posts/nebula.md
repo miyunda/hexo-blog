@@ -267,12 +267,13 @@ pki:
 - 新兴事物，第三方整合还不存在
 
 总之呢，这玩意既然把网连上了，怎么玩就看各位想象力了。
+
 感谢观看，本文完。
 
 ---
 
 <details>
-<summary>以下我也不知道什么意思</summary>
+<summary>不要点开这里，点开后果自负</summary>
 
 ```bash
 apt-get install privoxy -y
@@ -290,3 +291,4 @@ systemctl restart privoxy
 ![Edge设置代理服务器](https://cdn.beijing2b.com/nebula-2019112219657.PNG)
 
 </detail>
+
