@@ -10,14 +10,10 @@ cover: https://cdn.beijing2b.com/nebula-20191122164347.jpg
 ---
 
 >夜晚/我爱天空点点明星/白天/我爱天空飘飘白云；
-
-> 无论什么夜晚/天空总会出现了星；
-
-> 无论什么白天/天空总会漂浮着云。
-
-> 星不怕黑暗/云不怕天阴；
-
-> 点点的星/能扩大了人生/片片的云/能象征着自由。
+>无论什么夜晚/天空总会出现了星；
+>无论什么白天/天空总会漂浮着云。
+>星不怕黑暗/云不怕天阴；
+>点点的星/能扩大了人生/片片的云/能象征着自由。
 
 
 
@@ -62,7 +58,6 @@ cover: https://cdn.beijing2b.com/nebula-20191122164347.jpg
 - 虚机一台，运行Windows10 1909，在北京
 
 - 辣鸡VPS一台，运行Debian8，在布法罗
-
 
 #### 灯塔
 
@@ -114,7 +109,7 @@ pki:
   key: /etc/nebula/lighthouse.key
 
 static_host_map:
-  "192.168.250.1": [lighthouse.beijing2b.com:4242"] 
+  "192.168.250.1": [lighthouse.beijing2b.com:4242"]
 
 lighthouse:
   am_lighthouse: true #这行只有“灯塔”才有
@@ -217,7 +212,7 @@ pki:
   key: c:\nebula\win10.key
 
 static_host_map:
-  "192.168.250.1": [lighthouse.beijing2b.com:4242"] 
+  "192.168.250.1": [lighthouse.beijing2b.com:4242"]
 
 lighthouse:
   am_lighthouse: false
@@ -239,7 +234,7 @@ tun:
   drop_multicast: false
   tx_queue: 500
   mtu: 1300
- 
+
   routes:
     #- mtu: 8800
     #  route: 10.0.0.0/16
