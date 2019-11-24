@@ -6,7 +6,7 @@ categories:
 tags:
   - 预装
   - 精简
-  -macOS
+  - macOS
 ---
 >我花钱买的软件，凭什么要用？！
 
