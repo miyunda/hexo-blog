@@ -23,7 +23,7 @@ before_install:
 - sed -i "s/valineappKey/${ValineKey}/g" _config.yml
 install:
 - npm install
-# - npm i --save hexo-wordcount
+- npm i --save hexo-wordcount
 - npm install hexo-deployer-git --save
 - npm install hexo-generator-searchdb --save
 - npm install hexo-tag-dplayer --save
