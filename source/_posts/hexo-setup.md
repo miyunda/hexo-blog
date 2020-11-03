@@ -261,9 +261,15 @@ nano /etc/passwd
 cat /etc/shells # 发现'git-shell'不在
 which git-shell # 找到它的路径
 nano /etc/shells # 把找到的路径附加进来
+echo /usr/bin/git-shell |  sudo tee -a /etc/shells # 木有权限的话可以试试这行
 chsh git # 默认提示即是上面找到的路径，直接回车即可。
 ```
-
+回到工作站（本地）再次尝试下登录，看到下面这种就对了
+```bash
+fatal: Interactive git shell is not enabled.
+hint: ~/git-shell-commands should exist and have read and execute access.
+Connection to web-bj-01.beijing2b.com closed.
+```
 生成网页仓库
 初始化仓库文件夹
 ```bash

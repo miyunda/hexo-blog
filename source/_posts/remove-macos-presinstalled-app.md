@@ -38,7 +38,7 @@ sudo mount -uw /
 4. 打开一个访达，选中看着不顺眼的App，拖到终端里，回车。
 ![sudo rm -rf ](https://cdn.beijing2b.com/remove-macos-presinstalled-app-20191124144157.gif)
 熟练了之后可以直接像下面这样
-```bash
+```
 cd /System/Applications # Catalina
 cd /Applications # Mojave以及更早
 sudo rm -rf Maps.app
