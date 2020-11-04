@@ -5,7 +5,7 @@ git:
   submodules: false
 language: node_js
 node_js:
-  - 14
+  - 12.14
 branches:
   only:
   - blog-src
