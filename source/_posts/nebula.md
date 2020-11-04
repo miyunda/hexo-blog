@@ -7,6 +7,8 @@ tags:
   - nebula
   - VPN
 cover: https://cdn.beijing2b.com/nebula-20191122164347.jpg
+coverWidth: 953
+coverHeight: 522
 ---
 
 >夜晚/我爱天空点点明星/白天/我爱天空飘飘白云；
