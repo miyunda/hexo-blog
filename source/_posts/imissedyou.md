@@ -16,6 +16,14 @@ tags:
 
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=110 src="//music.163.com/outchain/player?type=1&id=98111852&auto=1&height=90"></iframe>
 
+<details>
+<summary>尽量去猪厂听啊，给我省点流量钱。实在不愿意去猪厂的请点开这里</summary>
+
+ {% aplayer 如果我不是我 米云达 https://cdn.beijing2b.com/mp3/%E5%A6%82%E6%9E%9C%E6%88%91%E4%B8%8D%E6%98%AF%E6%88%91Demo.mp3 %}
+
+</details>
+
+
 作曲 : 樊冲、蔡卓
 作词 : 周申
 
