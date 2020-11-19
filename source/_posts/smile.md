@@ -21,7 +21,7 @@ tags:
 <details>
 <summary>尽量去猪厂听啊，给我省点流量钱。实在不愿意去猪厂的请点开这里</summary>
 
- {% aplayer 如果我不是我 米云达 https://cdn.beijing2b.com/music/mp3/%E4%BD%A0%E7%AC%91%E8%B5%B7%E6%9D%A5%E7%9C%9F%E5%A5%BD%E7%9C%8BDemo.mp3 %}
+ {% aplayer 你笑起来真好看 米云达 https://cdn.beijing2b.com/music/mp3/%E4%BD%A0%E7%AC%91%E8%B5%B7%E6%9D%A5%E7%9C%9F%E5%A5%BD%E7%9C%8BDemo.mp3 %}
 
 </details>
 
