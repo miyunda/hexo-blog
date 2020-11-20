@@ -30,7 +30,7 @@ tags:
 设我的Web服务器FQDN为：`webserver.beijing2b.com` （此域名不对读者提供服务，直接http发包会被重定向）
 读者原来访问的是`www.beijing2b.com`，这是一个CNAME记录，它解析为`webserver.beijing2b.com`
 现在加入新的CNAME记录 
-`@beijing.bb`指向`webserver.beijing2b.com`
+`beijing.bb`指向`webserver.beijing2b.com`
 `www.beijing.bb`指向`webserver.beijing2b.com`
 
 ### Em 修改Nginx配置
