@@ -99,7 +99,7 @@ server {
     listen       443 ssl http2;
     listen       [::]:443 ssl http2;
     server_name  beijing2b.com www.beijing2b.com;
-    这里老域名的SSL证书继续发挥作用。这就避免了证书与域名不匹配的尴尬
+    # 这里老域名的SSL证书继续发挥作用。这就避免了证书与域名不匹配的尴尬
     ssl_certificate /etc/1_www.beijing2b.com_bundle.crt;
     ssl_certificate_key /etc/2_www.beijing2b.com.key;
 
