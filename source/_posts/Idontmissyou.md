@@ -38,6 +38,6 @@ tags:
 
 
 
- {% aplayer 忘不了 米云达 https://cdn.beijing2b.com/music/mp3/%E5%BF%98%E4%B8%8D%E4%BA%86.mp3 %}
+ {% aplayer 忘不了 米云达 https://cdn.beijing2b.com/music/mp3%E5%BF%98%E4%B8%8D%E4%BA%86.mp3 %}
 
 感谢收听
