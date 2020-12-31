@@ -2,6 +2,7 @@
 Host githk401
 	HostName hk401.beijing2b.com
 	User git
+	Port 20008
 	StrictHostKeyChecking no
 	IdentityFile ~/.ssh/web-bj-01_id_rsa
 	IdentitiesOnly yes
