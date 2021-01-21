@@ -134,9 +134,8 @@ diskutil info /Volumes/RamDisk
 先把下载文件夹改到新地方：
 
 ```bash
-$ 
 sudo rm -rf ~/Downloads/
-$ ln -s /Volumes/RamDisk/Downloads/ ~/Downloads
+ln -s /Volumes/RamDisk/Downloads/ ~/Downloads
 ```
 
 注：以上操作可能会导致访达不在侧边显示下载文件夹，自己去改下就好了。
