@@ -11,7 +11,11 @@ tags:
 
 
 大家好，《宝贝宝贝》本来是大调歌曲，最近我把它改成了小调的。
-
+3、6、7改成
+降3、降6、降7
+其他不变
+当然和弦也变了
+风格突出阳光快乐喜悦
 
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1849021311&auto=1&height=66"></iframe>
 
