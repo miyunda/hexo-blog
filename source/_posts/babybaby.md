@@ -21,7 +21,7 @@ tags:
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1849021311&auto=1&height=66"></iframe>
 
 因为喜欢玩《旷野之息》，所以还传了个视频，音乐是一样的。
-<iframe id="spkj" src="https://www.acfun.cn/player/ac29387874" width=1280 frameborder="no" scrolling="no" allowfullscreen="allowfullscreen"> </iframe>
+<iframe id="spkj" src="https://www.acfun.cn/player/ac29387874"  allowfullscreen="allowfullscreen"> </iframe>
 
 
 
