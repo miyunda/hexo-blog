@@ -29,6 +29,6 @@ tags:
 
 我的能力一般,水平有限,还希望大家多包涵.猛一听不好听,不要紧,多听几遍就习惯了.另外我也不会说天津话,斗胆学几句,各位天津的朋友轻喷.
 
- {% aplayer 华为美 米云达 http://akamai.beijing2b.com/music/mp3/%E5%8D%8E%E4%B8%BA%E7%BE%8E.mp3 %}
+ {% aplayer 华为美 米云达 https://cdn.beijing2b.com/music/mp3/%E5%8D%8E%E4%B8%BA%E7%BE%8E.mp3 %}
 
 感谢 Thank you. Thank you very much.
