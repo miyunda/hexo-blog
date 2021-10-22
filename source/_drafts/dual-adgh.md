@@ -31,8 +31,8 @@ tags:
 动手操作需要：
 - [x] 宽带接入
 - [x] 订阅或者自建的不可描述服务
-- [x] 一台能运行Docker的设备，比如能~~刷入~~安装OpenWrt的设备，ARM或者x86_64都可以，姑且叫做路由器
-- [ ] 一台有SSH客户端的电脑
+- [x] 一台能运行Docker的设备，比如能~~刷入~~安装OpenWrt的设备，ARM或者x86_64都可以
+- [x] 一台有SSH客户端的电脑（是个电脑就行）
 
 **阅读本文代表您同意：不恰当的操作可能会导致家里无法访问互联网，引发家庭~~暴力~~矛盾。造成的任何损失由您自己负责。**
 
@@ -79,9 +79,9 @@ zone "bar.com" {
 
 ---
 ### Em 双ADGH
-把以上两节的流程缝合起来，我们就有了一个既能（有限度）去广告防跟踪，又能快速查询到正确DNS记录的系统。但是ADGH不具备DNS**条件**转发的功能，，所以我用两个ADGH分别为长城内外提供过滤服务。
+把以上两节的流程缝合起来，我们就有了一个既能（有限度）去广告防跟踪，又能快速查询到正确DNS记录的系统。理想的状况是先判断有木有广告然后再按照目的地进行条件转发，但是ADGH不具备DNS**条件**转发的功能，所以我先条件转发再用两个ADGH分别为长城内外提供过滤服务。
 
-![双ADGuardHome流程示意图](https://cdn.beijing2b.com/ca92f358cd1973d44d8e61c25bc52720)
+![双ADGuardHome流程示意图](https://cdn.beijing2b.com/095217d71fb2f75849e7bfcebc282ae2)
 
 当有DNS查询时先“分流”，确定是长城外还是长城内，内则转发到内用ADGH；外则指向外用ADGH。再由ADGH判断是否需要拦截，需要拦截的，直接失败；不需要拦截的，转发到上游DNS服务器，内的转发去本地ISP服务器/国内公共DNS服务器，外的去机场的ISP的DNS服务器或者国外公共DNS服务器。
 
@@ -89,7 +89,7 @@ zone "bar.com" {
 
 ### F 动手操作
 #### 环境简介：
-一台运行OpenWRT的虚拟机，它有两个网卡，eth1拨号上网，eth0接家里的交换机，设置固定IP地址192.168.1.1并且用DNSMASQ担任DHCP/DNS服务器，我相信这是大多数人家里的设置，这里就叫路由器吧。
+一台运行OpenWRT的虚拟机，它有两个网卡，eth1拨号上网，eth0接家里的交换机，设置固定IP地址192.168.1.1并且用DNSMASQ担任DHCP/DNS服务器，我相信这是大多数人家里的设置，姑且就叫路由器吧。
 
 #### 准备文件夹
 首先SSH登入路由器并查看Docker的信息:
@@ -128,11 +128,11 @@ docker run --name adguardhomegw \
 
 完成后登入192.168.1.1:5080，找到**设置**-**DNS设置**
 
-**上游服务器**：填入ISP分给您的那两个DNS服务器，这个通常是PPPoE拨号的时候"对端通告”来的。不知道的话去OpenWRT的状态-概览-系统日志里面搜索“primary   DNS address”和”secondary DNS address“。
+**上游服务器**：填入ISP分给您的那两个DNS服务器，这个通常是PPPoE拨号的时候"对端通告”来的。不知道的话去路由器管理页面的状态-概览-系统日志里面搜索“primary   DNS address”和”secondary DNS address“。
 
 选中**并行请求**。（注：Docker版本的负载均衡（RoundRobin）在我这有BUG，具体就是两个上游DNS服务器会有一个随机超时，所以虽然用不上我也还是用并行请求）
 
-**Bootstrap** DNS 服务器：这个不用管它，这个是为了解析DOH/DOT的FQDN，本次咱们不用DoH/DoT。
+**Bootstrap DNS 服务器**：这个不用管它，这个是为了解析DOH/DOT的FQDN，本次咱们不用DoH/DoT。
 
 其它DNS设定就是丰俭由人了，我是禁用了IPv6，TTL最小变为1800，最大变为3600
 
@@ -142,19 +142,22 @@ docker run --name adguardhomegw \
 **添加阻止列表**
 **添加一个自定义列表**
 
-新手推荐以下两个二选一即可：
+对于刚上手的用户我推荐以下两个二选一即可：
 
-https://github.com/Cats-Team/AdRules
+- https://github.com/Cats-Team/AdRules
 
-https://github.com/neodevpro/neodevhost
+- https://github.com/neodevpro/neodevhost
 
 比如第一个，输入URL是 `https://cdn.jsdelivr.net/gh/Cats-Team/AdRules@latest/adguard.txt`
 
 ###### DNSMASQ设置
 
-然后到OpenWRT的网页，选择网络-接口-DHCP/DNS，改：
+然后到路由器的管理网页，**选择网络-接口-DHCP/DNS**，改：
+
 **常规设置**：**DNS转发**：127.0.0.1#5553
+
 **高级设置**：**DNS** 查询缓存的大小：0
+
 另外禁用IPv6查询
 
 去内的设置基本就完成了，接着弄去外的：
@@ -184,7 +187,7 @@ docker run --name adguardhomeoversea \
 
 订阅服务您可能就不太清楚，可以去https://www.apnic.net/about-apnic/whois_search/your-ip/ 然后看结果里面的netname，然后就知道是机场用的哪家ISP了，尝试下ISP的可能存在的DNS服务器FQDN。比如netname是foobar，那么我可以大胆滴拼装出**ns3**.foobar.com和**ns4**.foobar.com，尝试解析他们，通常能得到IP地址。或者您运气不好找不到的话也可以用公共的，比如填入`TCP://8.8.8.8`和`TCP://1.1.1.1` 这样解析到的结果可能不是离海外ISP最近的地址，但是也能用。
 
-用ISP的DNS服务器请选择**并行请求**，用公共DNS也可以选择**负载均衡**。
+用ISP的DNS服务器请选择**并行请求**。
 
 **Bootstrap DNS 服务器**：这个还是不用管它，本次咱们不用DoH/DoT。
 最后别忘记禁用IPv6。
@@ -215,7 +218,7 @@ vi /opt/docker/ADGuardHome/overseaconf/AdGuardHome.yaml
 vi /opt/docker/ADGuardHome/gwconf/AdGuardHome.yaml
 ```
 
-用不惯的同学可以用`opkg install nano`
+用不惯`vi`的同学可以用`opkg install nano`
 
 里面的内容大概是这样的：
 
@@ -240,8 +243,7 @@ dns:
 ```
 
 前两行改控制台的页面IP/端口，密码忘记了就把马赛克那里都删掉，最后两行是DNS服务绑定IP/端口。
-改完了以后重启容器生效：
-先看清要重启哪一个，别弄混了：
+改完了以后重启容器生效。先看清要重启哪一个，别弄混了：
 
 ```bash
 docker ps
@@ -258,6 +260,6 @@ docker restart 2c44 #容器ID前4位
 
 ---
 
-这么做的缺点是可能有人嫌管理的时候输入端口号麻烦，我建议您可以在OpenWRT上用一个nginx反向代理，超出本文讨论范畴，就不讨论了。
+可能有人嫌管理的时候输入端口号麻烦，我建议您可以在路由器上或家里别的地方用一个nginx作反向代理，这就超出本文范畴，就不讨论了。
 
 好了，看完了就等于会了。祝大家上网顺利。

@@ -1,0 +1,8 @@
+{
+    "qiniu.access_key": "lKpO1BUj5E1XOp9sTDLXUn9VY5Ms67ljxXQhYgZL",
+    "qiniu.bucket": "beijing2b",
+    "qiniu.domain": "https://cdn.beijing2b.com",
+    "qiniu.enable": true,
+    "qiniu.remotePath": "${fileName}$(date)",
+    "qiniu.secret_key": "MbIMLlwrr1AdArFsIZw6HyuCiqJqfg2_HXB_9VC_"
+}
