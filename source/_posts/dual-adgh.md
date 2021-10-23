@@ -57,7 +57,7 @@ DNS条件转发（conditional forwarding）指的是管理员为DNS服务器先�
 ```
 server=/foo.com/12.34.56.7
 server=/bar.com/98.76.54.32
-server=/foo.com/bar.com/12.34.43.12
+server=/foo.bb/bar.bb/12.34.43.12
 ```
 
 或者这样的(BIND):
@@ -89,13 +89,18 @@ zone "bar.com" {
 
 ### F 动手操作
 #### 环境简介：
-一台运行OpenWRT的虚拟机，它有两个网卡，eth1拨号上网，eth0接家里的交换机，设置固定IP地址192.168.1.1并且用DNSMASQ担任DHCP/DNS服务器，我相信这是大多数人家里的设置，姑且就叫路由器吧。
+一台运行OpenWrt的虚拟机，它有两个网卡，eth1拨号上网，eth0接家里的交换机，设置固定IP地址192.168.1.1并且用DNSMASQ担任DHCP/DNS服务器，我相信这是大多数人家里的设置，姑且就叫路由器吧。
 
 #### 准备文件夹
 首先SSH登入路由器并查看Docker的信息:
 ```bash
+ssh root@192.168.1.1
+```
+
+```bash
 docker info
 ```
+
 查找其中的`Docker Root Dir: /opt/docker`字样，我这里是`/opt/docker`（x86_64），也可能是`mmcblk`（ARM）什么的，记下来。
 
 接下来为我们的ADGH建立文件夹：数据文件夹x2；配置文件夹x2，其中gw是内，~~不是“国外”的拼音~~ oversea是外。
@@ -208,7 +213,7 @@ docker run --name adguardhomeoversea \
 
 #### 后续修改
 
-以后想改怎么办？SSH登入OpenWRT:
+以后想改怎么办？SSH登入路由器:
 
 ```bash
 vi /opt/docker/ADGuardHome/overseaconf/AdGuardHome.yaml
@@ -262,4 +267,4 @@ docker restart 2c44 #容器ID前4位
 
 可能有人嫌管理的时候输入端口号麻烦，我建议您可以在路由器上或家里别的地方用一个nginx作反向代理，这就超出本文范畴，就不讨论了。
 
-好了，看完了就等于会了。祝大家上网顺利。
+好了，看完了就等于会了。最后祝大家1024快乐！好人一生平安。
