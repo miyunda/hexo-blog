@@ -81,10 +81,10 @@ server {
 }
 server {
   #
-  listen 443;
-  server_name "";
-  # 野生流量收集起来导到我的主页
-  rewrite ^(.*) https://beijing.bb permanent;
+  listen 443 default_server;
+  server_name _;
+  # 野生流量拒绝访问
+  return 403;
 }
 
 server {
