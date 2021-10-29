@@ -21,10 +21,7 @@ tags:
 *（图片来自西游记S1E8）*
 ---
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
-<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js" ></script>
-<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js" ></script>
-<meting-js server="tencent" type="song" id="330646917"></meting-js>
+{% meting "330646917"" "tencent" "song" "autoplay" "mutex:false" "listmaxheight:340px" "preload:none" "theme:#ff6699"%}
 
 ---
 

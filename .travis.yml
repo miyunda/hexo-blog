@@ -5,7 +5,7 @@ git:
   submodules: false
 language: node_js
 node_js:
-  - 12.14
+  - latest
 branches:
   only:
   - blog-src
@@ -17,12 +17,11 @@ before_install:
 - ssh-add ~/.ssh/web-bj-01_id_rsa
 - cp .travis/ssh_config ~/.ssh/config
 - npm install -g hexo-cli
-- rm -rf themes/next
-- git clone  https://github.com/miyunda/hexo-theme-nexmoe.git themes/nexmoe
-- sed -i "s/valineappId/${ValineId}/g" _config.yml
-- sed -i "s/valineappKey/${ValineKey}/g" _config.yml
+- sed -i "s/valineappId/${ValineId}/g" _config.nexmoe.yml
+- sed -i "s/valineappKey/${ValineKey}/g" _config.nexmoe.yml
 install:
 - npm install
+- npm i hexo-theme-nexmoe
 - npm install hexo-wordcount --save
 - npm install hexo-deployer-git --save
 - npm install hexo-generator-searchdb --save
