@@ -17,7 +17,7 @@ tags:
 <!-- more -->
 
 《蓝皮鼠和大脸猫》这部动画片给咱们90后的童年留下了美好的回忆. 希望大家喜欢我演唱的主题歌. 听歌请戴耳机,谢谢.
-{% aplayer 蓝皮鼠和大脸猫 米云达 http://akamai.beijing2b.com/music/mp3/%E8%93%9D%E7%9A%AE%E9%BC%A0%E4%B8%8E%E5%A4%A7%E8%84%B8%E7%8C%AB.mp3  %}
+{% aplayer 蓝皮鼠和大脸猫 米云达 https://cdn.beijing2b.com/music/mp3/%E8%93%9D%E7%9A%AE%E9%BC%A0%E4%B8%8E%E5%A4%A7%E8%84%B8%E7%8C%AB.mp3  %}
  ![](https://cdn.beijing2b.com/image/png/34550259bf29ccc7e26.png)
 
 <center>(图片来自网络)</center>
