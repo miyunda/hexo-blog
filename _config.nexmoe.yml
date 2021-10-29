@@ -50,11 +50,11 @@ social:
     - icon-bilibili
     - rgb(231, 106, 141)
     - rgba(231, 106, 141, .15)
-    GitHub:
-    - https://github.com/miyunda/
-    - icon-github
-    - rgb(25, 23, 23)
-    - rgba(25, 23, 23, .15)
+  GitHub:
+  - https://github.com/miyunda/
+  - icon-github
+  - rgb(25, 23, 23)
+  - rgba(25, 23, 23, .15)
 
 site_verification: # 向搜索引擎验证你对站点的所有权，用于向搜索引擎提交 sitemap 和管理站点被搜索引擎收录的情况。
   google:  
