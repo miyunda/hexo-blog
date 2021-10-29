@@ -17,6 +17,7 @@ before_install:
 - ssh-add ~/.ssh/web-bj-01_id_rsa
 - cp .travis/ssh_config ~/.ssh/config
 - npm install -g hexo-cli
+- npm i fsevents@2.3.2 -f --save-optional
 - sed -i "s/valineappId/${ValineId}/g" _config.nexmoe.yml
 - sed -i "s/valineappKey/${ValineKey}/g" _config.nexmoe.yml
 install:
