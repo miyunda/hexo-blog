@@ -27,6 +27,7 @@ install:
 - npm install hexo-deployer-git --save
 - npm install hexo-generator-searchdb --save
 - npm install hexo-tag-aplayer --save
+- npm install hexo-tag-dplayer --save
 script:
 - hexo generate
 after_script:
