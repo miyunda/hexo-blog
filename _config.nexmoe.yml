@@ -31,18 +31,18 @@ menu:
   #  文章归档:
   #    - /archives
   #    - icon-container
-    关于:
-      - /about/index.html
-      - icon-info-circle
+关于:
+  - /about/index.html
+  - icon-info-circle
 
-  widgets:
+widgets:
   #- social
   - category
   - tagcloud
   #- archive
   # - recent_posts
 
-  maxTagcloud: 9 # 0 表示不限制
+maxTagcloud: 9 # 0 表示不限制
 
 social:
   哔哩哔哩:
