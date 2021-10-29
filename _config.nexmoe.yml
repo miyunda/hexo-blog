@@ -41,10 +41,10 @@ menu:
 #  文章归档:  # 使用说明：https://docs.nexmoe.com/article/archive
 #    - /archive.html
 #    - icon-container
-  关于博客:
+  关于:
     - /about.html
     - icon-info-circle
-  我的朋友: 
+  和我PY: 
     - /PY.html # 使用说明：https://docs.nexmoe.com/article/py
 
 widgets:
