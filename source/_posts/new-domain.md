@@ -79,12 +79,13 @@ server {
   # 在这里，我做了https全加密处理，在访问http的时候自动跳转到https
   rewrite ^(.*) https://beijing.bb$1 permanent;
 }
+# 所有恶意DNS解析以及IP直接访问会被拒绝
 server {
   #
-  listen 443;
-  server_name "";
-  # 野生流量收集起来导到我的主页
-  rewrite ^(.*) https://beijing.bb permanent;
+  listen 443 default_server;#指定默认服务器
+  server_name _;#名字随意
+  # 野生流量拒绝访问
+  return 403;
 }
 
 server {
