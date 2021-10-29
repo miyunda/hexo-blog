@@ -75,6 +75,9 @@ pagination_dir: page
 ## Themes: https://hexo.io/themes/
 theme: nexmoe
 
+# Enable inpage player
+aplayer:
+  meting: true
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
@@ -171,7 +174,7 @@ theme_config:
     cnzz_site_id: #<ID>
     tencent_site_id: #<ID>
     la_site_id: #<ID>
-    baidu_site_id: #<ID>
+    baidu_site_id: 0a049eb4d2579af09ecb53c587060235
     gtm_container_id: #<ID>
 
   comment: valine # 评论框，目前支持 gitalk,gitment,valine,disqus,disqusjs,changyan,livere,DiscussBot
