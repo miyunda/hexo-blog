@@ -18,11 +18,52 @@ tags:
 
 ![珍珍爱爱怜怜](https://cdn.beijing2b.com/3ec33a4147b46f55491a19a4e83084d5)
 
-*（图片来自西游记S1E8）*
+<font size=1>（图片来自西游记S1E8）</font>
 ---
 
-{% meting "330646917"" "tencent" "song" "autoplay" "mutex:false" "listmaxheight:340px" "preload:none" "theme:#ff6699"%}
+[点这里听歌](https://y.qq.com/n/ryqq/songDetail/001Mwa430TCSD5)
 
+<details>
+<summary>尽量去鹅厂听啊，给我省点流量钱。实在不愿意去鹅厂的请点开这里</summary>
+
+ {% aplayer 我为祖国生三胎 米云达 https://cdn.beijing2b.com/music/shengshengsheng.mp3 %}
+
+</details>
+
+作词、作曲：米云达
+
+我为祖国生三胎
+生了三胎生四胎
+生了五六七八胎
+我的腹肌变八块
+都说冰糖葫芦儿酸
+酸里面它透着酸
+都说冰糖葫芦儿酸
+酸里面它透着酸
+我生啊我生啊
+我生了很多胎
+我生啊我生啊
+我生的小韭菜
+我生啊我生啊
+我生了很多胎
+我生啊我生啊
+韭菜生韭菜
+我为祖国生三胎
+生了三胎生四胎
+生了一胎又一胎
+嘿嘿哈哈乐开怀
+政策已经全放开
+一二三嘿生起来
+生的太少要被淘汰
+我们走进新时代
+我生啊我生啊
+我生了很多胎
+我生啊我生啊
+我生的小韭菜
+我生啊我生啊
+我生了很多胎
+我生啊我生啊
+韭菜生韭菜
 ---
 
 感谢收听，这首歌伴奏5毛钱，需要的直接转账即可。
