@@ -20,9 +20,7 @@ tags:
 
 *（图片来自西游记S1E8）*
 ---
-{% meting "auto:https://i.y.qq.com/v8/playsong.html?songid=330646917" %}
-
-
+{% meting "auto:https://y.qq.com/n/ryqq/song/001Mwa430TCSD5.html" %}
 
 ---
 
