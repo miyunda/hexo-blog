@@ -20,7 +20,7 @@ tags:
 
 *（图片来自西游记S1E8）*
 ---
-{% meting "auto:https://y.qq.com/n/ryqq/song/001Mwa430TCSD5.html" %}
+{% meting "auto:https://y.qq.com/n/ryqq/songDetail/001Mwa430TCSD5" %}
 
 ---
 
