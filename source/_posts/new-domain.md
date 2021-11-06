@@ -31,10 +31,10 @@ tags:
 读者原来访问的是`www.beijing2b.com`，这是一个CNAME记录，它解析为`webserver.beijing2b.com`
 现在加入新的CNAME记录 
 `beijing.bb`指向`webserver.beijing2b.com`
-`www.beijing.bb`指向`webserver.beijing2b.com`
+`www.beijing.bb`指向`webserver.beijing2b.com`s
 
 ### Em 修改Nginx配置
-找到Nginx配置文件并编辑，比如我的在
+找到Nginx配置文件并编辑，比如我的如下，然后我把同级文件全删了只剩下这一个。
 ```bash
 sudo nano  /etc/nginx/sites-enabled/hexo
 ```
@@ -43,13 +43,13 @@ sudo nano  /etc/nginx/sites-enabled/hexo
 server {
   #侦听443端口，这个是ssl访问端口
   listen 443;
-  #定义使用 访问域名
-  server_name beijing.bb;
+  #新域名
+  server_name www.beijing.bb beijing.bb;
   #定义服务器的默认网站根目录位置
   root /var/www/hexo/;
   #设定本虚拟主机的访问日志
   access_log logs/nginx.access.log;
-  # 这些都是腾讯云推荐的配置，直接拿来用就行了，注意证书的路径即可。
+  # 这些都是腾讯云推荐的配置，直接拿来用就行了，只是修改证书的路径，注意这些路径是相对于/etc/nginx/nginx.conf文件位置
   ssl on;
   ssl_certificate /etc/1_beijing.bb_bundle.crt;
   ssl_certificate_key /etc/2_beijing.bb.key;
@@ -71,41 +71,43 @@ server {
   #禁止访问 .htxxx 文件
   #    location ~ /.ht { deny all;
   #}
+
 }
 server {
-  # 80端口是http正常访问的接口
+  # 侦听443端口
+  listen 443;
+ # 老域名
+  server_name www.beijing2b.com beijing2b.com;
+  ssl on;
+  ssl_certificate /etc/1_beijing2b.com_bundle.crt;
+  ssl_certificate_key /etc/2_beijing2b.com.key;
+  # 用301跳转到新域名
+  return       301 https://beijing.bb$request_uri;
+}
+
+server {
   listen 80;
-  server_name beijing.bb;
-  # 在这里，我做了https全加密处理，在访问http的时候自动跳转到https
-  rewrite ^(.*) https://beijing.bb$1 permanent;
-}
-# 所有恶意DNS解析以及IP直接访问会被拒绝
-server {
-  #
-  listen 443 default_server;#指定默认服务器
-  server_name _;#名字随意
-  # 野生流量拒绝访问
-  return 403;
+  # 老域名http一律跳到新域名https
+  server_name beijing2b.com www.beijing2b.com;
+  rewrite ^(.*)$ https://beijing.bb$1 permanent;
 }
 
 server {
-    listen       80;
-    listen       [::]:80;
-    server_name  beijing2b.com www.beijing2b.com;
-    #所有旧域名的流量永久重定向
-    return       301 https://beijing.bb$request_uri; 
+  listen  80   default_server;
+  #所有
+  server_name  _;
+  return 400;
 }
 
 server {
-    listen       443 ssl http2;
-    listen       [::]:443 ssl http2;
-    server_name  beijing2b.com www.beijing2b.com;
-    # 这里老域名的SSL证书继续发挥作用。这就避免了证书与域名不匹配的尴尬
-    ssl_certificate /etc/1_www.beijing2b.com_bundle.crt;
-    ssl_certificate_key /etc/2_www.beijing2b.com.key;
-
-    return       301 https://beijing.bb$request_uri;
-
+  listen 443;
+  # 所有
+  server_name _;
+  ssl on;
+  # 证书地址配置随便弄一对证书就行
+  ssl_certificate /etc/ssl/1_beijing2b.com_bundle.crt;
+  ssl_certificate_key /etc/ssl/2_beijing2b.com.key;
+  return 400;
 }
 ```
 上面的重点是301重定向以及新老域名的SSL证书配置。
