@@ -96,7 +96,7 @@ server {
   listen  80   default_server;
   #所有
   server_name  _;
-  return 400;
+  return 444;
 }
 
 server {
@@ -104,10 +104,10 @@ server {
   # 所有
   server_name _;
   ssl on;
-  # 证书地址配置随便弄一对证书就行
+  # 证书地址配置随便弄一对证书就行, 最好用自己的CA建一个。
   ssl_certificate /etc/ssl/1_beijing2b.com_bundle.crt;
   ssl_certificate_key /etc/ssl/2_beijing2b.com.key;
-  return 400;
+  return 444;
 }
 ```
 上面的重点是301重定向以及新老域名的SSL证书配置。
