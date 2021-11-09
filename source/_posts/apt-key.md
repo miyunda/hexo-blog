@@ -1,5 +1,5 @@
 ---
-title: apt-key不安全的解决方案
+title: apt-key不安全?
 date: 2021-03-17 06:30:29
 categories:
   - 信息技术
