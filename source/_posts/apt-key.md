@@ -21,13 +21,14 @@ tags:
 
 在使用Linux操作系统时，往往需要添加第三方的源，源使用OpenPGP格式的签名来确保安全，在Debian系的系统中，这可以通过apt-key add命令来添加。
 ```bash
-apt-key add <3rdparty-repo.gpg>
+sudo apt-key add <3rdparty-repo.gpg>
 ```
 使用的时候它提示
 >Warning: apt-key is deprecated. Manage keyring files in trusted.gpg.d instead (see apt-key(8)).
+
 然后我看了下 `man apt-key`，总之就是虽然能用，但是建议不用，过几年连用都用不了了。
 
-## D 怎么回事
+## D 发生肾么事了
 究其原因，我们把OpenPGP格式的密钥添加到`/etc/apt/trusted.gpg`或者`/etc/apt/trusted.gpg.d`里面，本意为了认证特定的源；但是这个密钥被APT无条件滴信任，可以用来认证其它木有签名的源，甚至可以替换Ubuntu/Debian官方的源提供的包。所以这是一个不安全的操作。
 
 [Debian维基](https://wiki.debian.org/DebianRepository/UseThirdParty)说的是：
@@ -68,7 +69,7 @@ sudo nano /etc/apt/sources.list.d/<3rdparty-repo>.list
 ```
 deb [arch=amd64 signed-by=/usr/share/keyrings/<3rdparty-repo>-archive-keyring.gpg] <3rdparty-repo URL> <lsb-release> main
 ```
-以上内容自行替换哈，其中`<lsb-release>`是指系统的版本，比如`xenial`，`bionic`，`focal`，`groovy`，`buster`，`bullseye`等等。不知道的可以用`lsb_release -cs`查看。
+以上内容自行替换哈，其中`<lsb-release>`是指系统的版本，比如`xenial`、`bionic`、`focal`、`groovy`、`buster`、`bullseye`等等。不知道的可以用`lsb_release -cs`查看。
 
 弄好了就可以运行`sudo apt update`了。
 
@@ -78,7 +79,7 @@ deb [arch=amd64 signed-by=/usr/share/keyrings/<3rdparty-repo>-archive-keyring.gp
 有同学问了，你怎么不早说啊？我以前用不安全的办法添加过源，我怎么办啊？
 
 
-~~IT技术支持三大招数：重装、买新的。（排名分先后，不分也行）~~
+~~IT技术支持三大招数：重启、重装、买新的。（排名分先后，不分也行）~~ 重启这次是不行了，重装吧。
 
 ```bash
  sudo apt-key list
@@ -87,7 +88,7 @@ deb [arch=amd64 signed-by=/usr/share/keyrings/<3rdparty-repo>-archive-keyring.gp
  ```
  pub   rsa4096 2020-11-10 [SC] [expires: 2028-11-11]
       1234 5678 001A BCDE FFED  CBA9 876F 5432 1098
-uid           [ unknown] Foo Bar Signing Key (11/bullseye) <unsecure@foobar.org>
+uid           [ unknown] Foo Bar Signing Key (11/bullseye) <unsecure@foobar.com>
 sub   rsa4096 2020-11-10 [S] [expires: 2028-11-11]
 ```
 我们就可以把它删除：
