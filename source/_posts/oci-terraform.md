@@ -77,7 +77,7 @@ wget https://raw.githubusercontent.com/bohanyang/debi/master/debi.sh && chmod a+
 sudo ./debi.sh --architecture arm64 --user root --password 密码
 ```
 
-在模版机上建立自己的用户还有SSH公钥、环境变量之类的、该安装的软件包、时间同步还有禁止root远程登录等等各种要设置的东西**全都弄好了**之后。最后安装[cloud-init](https://cloud-init.io/)。这个软件在操作系统部署之后读取来自`http://169.254.169.254`的元数据，帮您修改操作系统——我主要是需要它帮我改机器名字（hostname）——以免四台虚机都叫同一个名字。在模版机上运行：
+在模版机上建立自己的用户还有SSH公钥、环境变量之类的、该安装的软件包、时间同步还有禁止root远程登录等等各种要设置的东西**全都弄好了**之后。最后安装[cloud-init](https://cloud-init.io/)。这个软件在操作系统部署之后读取来自`169.254.169.254`的元数据，帮您修改操作系统——我主要是需要它帮我改机器名字（hostname）——以免四台虚机都叫同一个名字。在模版机上运行：
 ```bash
 sudo apt update
 sudo apt install cloud-init
@@ -294,6 +294,6 @@ screen -r 386386
 ```
 ---
 ## Am 总结
-到这里，抢机，或者说是捡机就结束了，想起来就去网页控制台收货吧。要是再部署一个相同的实例就把`main.tf`里面的机器名字改改就行了。有了四台机器之后就好好利用它们学习吧。别忘记把自定义镜像删除——我觉得这个东西可能是收费的。
+到这里，抢机，或者说是捡机就结束了，想起来就去网页控制台收货吧。要是再部署一个相同的实例就把`main.tf`里面的机器名字改改就行了。有了四台机器之后就好好利用它们学习吧。别忘记把自定义镜像删除——我觉得这个东西可能是收费的：https://www.oracle.com/cloud/price-list.html#storage
 
 谢谢观看，看过就等于会了。
