@@ -8,13 +8,15 @@ categories:
   - 信息技术
 tags:
   - 云计算
-  - VPS
+  - Terraform
   - Linux
   - 自动化
 ---
-大家好，本文描述了如何自动部署Oracle Cloud的运算实例。本文面对的并非Linux大佬，而是像我一样不会Linux但是又喜欢玩数字化过家家的朋友，既是我学习的笔记，也供各位朋友参考。专业人士还请指点一二，谢谢。
+大家好，本文描述了如何自动部署Oracle Cloud的运算实例。本文面对的并非Linux大佬，而是像我一样不会Linux但是又喜欢玩数字化过家家的朋友，本文记录了我摸索相关知识的过程，也供感兴趣的朋友参考。专业人士还请不吝赐教，指点一二，谢谢。
 
 <!-- more -->
+
+*（封面名场面来自《九品芝麻官》截图）*
 
 阅读本文需要您理解VPS基本概念。动手实验需要您会基本的bash操作，并持有信用卡，卡组织为御三家（V/M/A）之一即可。
 
@@ -28,7 +30,7 @@ Oracle Cloud（下称甲骨云）前两年刚出来那阵喊着永久免费的�
 
 注意：甲骨云免费的不仅有运算实例，还有数据库、负载均衡器、SSL证书、DNS服务器等等一堆IT基础架构的东西，拿来做正经事可能不太行，但是结合4个运算实例可以做出别家服务商的免费账号做不出来的实验，用来学习还是蛮好的。
 
-## D 注册
+## Dm 注册
 
 注册很简单，一步一步跟着走就行了，https://www.oracle.com/cn/cloud/free/ 
 
@@ -45,6 +47,7 @@ Oracle Cloud（下称甲骨云）前两年刚出来那阵喊着永久免费的�
   - 建立租户（Tenacy）
   - 建立虚拟网络（VCN）
   - VCN的子网
+  - VCN
   - VCN和子网的DNS标签（lable）
   - 安全组（防火墙）
 
@@ -55,7 +58,7 @@ Arm的支持镜像比较少，我是选择的Ubuntu然后自己装了个Debian�
 
 去 https://cloud.debian.org/images/cloud/OpenStack/ 下载然后上传到一个存储桶再导入镜像。
 这样的：
-![OCI import custom image](https://cdn.beijing2b.com/4dcb45e78d56f1d4007a35247218f114)
+![OCI import custom image](https://cdn.beijing2b.com/392e9b77e742a80399383ab483f0943e)
 
 或者也可以：
 
@@ -99,7 +102,7 @@ manage_etc_hosts: true
 那么有同学要问了，这模版机哪来的呢？这里我使用了插叙，一种很高级的文学手法。
 
 #### 使用平台提供的镜像
-嫌自定义镜像麻烦或者是建立第一个模版机就用甲骨云提供的现成镜像也行，有Oracle Linux，CentOS以及Ubuntu可选，都一样，反正哪个我也不会用。
+嫌自定义镜像麻烦或者是建立模版机就用甲骨云提供的现成镜像也行，有Oracle Linux，CentOS以及Ubuntu可选，都一样，反正哪个我也不会用。
 
 ## F 古法手作
 不管是自定义还是平台提供的镜像，部署都是一样的，用网页的控制台去点：
@@ -176,7 +179,7 @@ IaC有两种实施方法：声明式（declarative）和命令式（imperative�
   - Plan——用户在正式制备/改变配置之前有机会预览、检查效果
   - Apply——用户梦想成真
 
-第一步甲骨云已经给我们做好了，直接下载他家做好的声明文件即可。
+第一步甲骨云已经替咱们做好了，直接下载他家做好的声明文件即可。
 
 第二步在咱们的场景中可以跳过，反正也不是什么正经的环境。
 
@@ -185,7 +188,7 @@ IaC有两种实施方法：声明式（declarative）和命令式（imperative�
 #### 安装Terraform
 [tf的官方文档已经很全了，DNF/Brew什么的都有，照着抄就好了。](https://learn.hashicorp.com/tutorials/terraform/install-cli) 装完了用`terraform -v`测试下。
 
-不过其中apt系的方法不敢苟同——他家用的方法不老优雅的。
+不过其中apt系的方法不敢苟同——他家用的方法不太好看。
 
 我在我的Debian上是这么装的：
 ```bash
