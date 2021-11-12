@@ -126,7 +126,7 @@ manage_etc_hosts: true
 ```bash
 bash -c "$(curl -L https://raw.githubusercontent.com/oracle/oci-cli/master/scripts/install/install.sh)"
 ```
-一路回车即可，假如您不用bash用尔是使用其它sh的需要输入自己的rc文件路径，以创建正确的环境变量（路径）。
+一路回车即可，假如您不用bash用而是使用其它sh的需要输入自己的rc文件路径，以创建正确的环境变量（路径）。
 
 测试下
 ```bash
