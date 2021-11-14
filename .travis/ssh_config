@@ -1,8 +1,8 @@
 
-Host githk401
-	HostName hk401.beijing2b.com
+Host githk402
+	HostName web-hk-402.beijing2b.com
 	User git
-	Port 20008
+	Port 22
 	StrictHostKeyChecking no
 	IdentityFile ~/.ssh/web-bj-01_id_rsa
 	IdentitiesOnly yes

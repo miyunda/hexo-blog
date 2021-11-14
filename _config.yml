@@ -81,5 +81,5 @@ aplayer:
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: githk401:/home/git/repo/hexo.git
+  repo: githk402:/home/git/repo/hexo.git
   branch: master
