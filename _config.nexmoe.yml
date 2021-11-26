@@ -4,7 +4,7 @@ background:
   width: 1440
   height: 739
 favicon:
-  href: /images/favicon.ico # 网站图标
+  href: https://cdn.beijing2b.com/image/favicon.ico # 网站图标
   type: image/png # 图标类型，可能的值有(image/png, image/vnd.microsoft.icon, image/x-icon, image/gif)
 
 function: # 功能开关，可选值（true,false）
