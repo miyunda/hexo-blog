@@ -102,7 +102,7 @@ sudo nano client-cert.cfg
 # 贵组织的名字 这里与上面CA证书的内容一致
 organization = "ca.foobar.com"
 
-# 这个会显示在客户端的管理界面中.
+# 这个会显示在客户端的管理界面中，建议使用上一篇文章创建的用户名
 cn = "VPN User"
 
 # 这里使用上一篇文章创建的用户名
@@ -122,12 +122,16 @@ encryption_key
 ```
 生成客户端证书：
 ```bash
-sudo certtool --generate-certificate --load-privkey client-privkey.pem --load-ca-certificate ca-cert.pem --load-ca-privkey ca-privkey.pem --template client-cert.cfg --outfile client-cert.pem
+sudo certtool --generate-certificate --load-privkey client-privkey.pem \
+              --load-ca-certificate ca-cert.pem --load-ca-privkey ca-privkey.pem \
+              --template client-cert.cfg --outfile client-cert.pem
 ```
 转为pkcs12（pfx）格式，二选一：
 ```bash
-sudo certtool --to-p12 --load-privkey client-privkey.pem --load-certificate client-cert.pem --pkcs-cipher aes-256 --outfile client.p12 --outder
-sudo certtool --to-p12 --load-privkey client-privkey.pem --load-certificate client-cert.pem --pkcs-cipher 3des-pkcs12 --outfile low-client.p12 --outder
+sudo certtool --to-p12 --load-privkey client-privkey.pem --load-certificate client-cert.pem \
+                       --pkcs-cipher aes-256 --outfile client.p12 --outder
+sudo certtool --to-p12 --load-privkey client-privkey.pem --load-certificate client-cert.pem \
+                       --pkcs-cipher 3des-pkcs12 --outfile low-client.p12 --outder
 ```
 查看证书信息：
 ```bash
@@ -137,7 +141,19 @@ certtool --p12-info --inder --infile=low-client.p12
 
 为了举例方便，这篇文章里的客户端设备共用一个证书；真正使用的时候您得给每个客户端设备颁发各自的证书（每个客户端设备一对`<clientname>-privkey/cert.pem`，用户名都一样的话可以共用`.cfg`文件），这样发生不测的时候可以针对单个设备撤销证书：
 ```bash
-sudo certtool --generate-crl --load-ca-privkey ca-privkey.pem --load-ca-certificate ca-cert.pem --load-certificate <lostOrStolen>-cert.pem
+nano crl.cfg
+```
+内容大概事这样的：
+```
+crl_next_update = 365
+crl_number = 1
+```
+
+```bash
+sudo cat <lostOrStolen>-cert.pem >> revoked.pem
+sudo certtool --generate-crl --load-ca-privkey ca-privkey.pem \
+              --load-ca-certificate ca-cert.pem --load-certificate revoked.pem \
+              --template crl.cfg --outfile crl.pem
 ```
 
 # Em VPN服务器配置
