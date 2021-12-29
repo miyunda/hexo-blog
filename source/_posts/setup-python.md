@@ -50,7 +50,7 @@ Linux（包括WSL，下同）和MacOS都是启动一个终端：
 ```bash
 wget "https://repo.anaconda.com/miniconda/Miniconda3-latest-$(uname -s)-$(uname -m).sh" # Linux复制这行
 
-wget wget "https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-$(uname -m).sh" # MacOS复制这行
+wget "https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-$(uname -m).sh" # MacOS复制这行
 ```
 假如访问它网站太慢的话也可以去[清华大学开源软件镜像站](https://tuna.moe/)下载。~~四舍五入就约等于是在清华学的Python编程。~~
 ```bash
