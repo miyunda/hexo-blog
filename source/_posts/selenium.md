@@ -13,7 +13,7 @@ tags:
 
 <!-- more -->
 
-阅读本文需要您会简单的Shell操作.完成动手实验需要有一台运行Linux/Windows/macOS之一的电脑。
+阅读本文需要您会简单的Shell操作。完成动手实验需要有一台运行Linux/Windows/macOS之一的电脑。
 
 ---
 
