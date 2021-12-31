@@ -1,6 +1,6 @@
 ---
 title: 搭建Web自动化测试环境
-date: 2022-01-01 00:00:01
+date: 2021-01-01 00:00:01
 categories:
   - 信息技术
 tags:
@@ -34,15 +34,15 @@ tags:
 
 # Dm Selenium 简介
 
-Selenium（硒）正是这样的一种工具，一方面它提供了API，另一方面它通过WebDriver去控制浏览器。
+Selenium（硒）正是这样的一种工具，一方面它提供了API，另一方面它通过WebDriver（简称driver，下同）去控制浏览器。
 ![selenium-webdriver-architect](https://ucdn.beijing2b.com/image/selenium-2021-12-30-22-25-47.png)
-因为我的画图软件只有上面三个图标，所以就只画了三个，事实上Selenium（简称Se，下同）支持各种主流的语言和浏览器。每一种浏览器都要有对应的webdriver，不同版本不同CPU架构平台那么webdriver也不同。
+因为我的画图软件只有上面三个图标，所以就只画了三个，事实上Selenium（简称Se，下同）支持各种主流的语言和浏览器。每一种浏览器都要有对应的driver，不同版本不同CPU架构平台那么driver也不同。
 
 本文选择的操作系统为CentOS 7 x86_64 和 Debian 11 arm64。
 
-本文为x86_64平台选择了Chrome，不解释，webdriver管理器会自动帮我们安装Chrome需要的webdriver，并随着Chrome升级而升级。
+本文为x86_64平台选择了Chrome，不解释，管理器会自动帮我们安装Chrome需要的driver，并随着Chrome升级而升级。
 
-然后因为我找不到Chrome在arm64 Linux的webdriver，webdriver管理器并不会识别arm64，它会安装一个x86_64的版本，导致无法运行。（注：2020年12月30日仍未改正）所以我给arm64 Linux安装Chromium以及对应的webdriver，因为Debian 11的官方仓库就有，比较方便。
+然后因为我找不到Chrome在arm64 Linux的driver，管理器并不会识别arm64，它会安装一个x86_64的版本，导致无法运行。（注：2020年12月30日仍未改正）所以我给arm64 Linux安装Chromium以及对应的driver，因为Debian 11的官方仓库就有，比较方便。
 
 
 # Em 安装浏览器
@@ -78,7 +78,7 @@ sudo apt install ./google-chrome-stable_current_amd64.deb
 google-chrome --version
 ```
 ## arm64 安装Chromium
-Debian 11 官方源就有Chromium的webdriver，安装它会把Chromium作为依赖也装好：
+Debian 11 官方源就有Chromium的driver，安装它会把Chromium作为依赖也装好：
 ```bash
 sudo apt update
 sudo apt install chromium-driver
@@ -89,14 +89,14 @@ sudo ln -s $(which chromium) /usr/bin/google-chrome
 google-chrome --version
 ```
 
-`dnf`系的arm64的webdriver我嫌麻烦，所以就略过了。
+`dnf`系的arm64的driver我嫌麻烦，所以就略过了。
 
-## webdriver
+## driver
 x86_64的Linux无需手动安装，可以使用Python自动安装、更新。
 
 arm64的Linux上面说过了，它目前无法自动安装，只能手动安装然后在自动化测试的时候调用。
 
-目前支持最完善的是macOS，Intel和M1的都可以自动安装，特别顺滑。
+目前支持最完善的是macOS，Intel和M1的都可以自动安装，丝般顺滑。
 
 # F 准备Selenium环境
 我使用Conda来准备一个虚拟环境，可以参考[利用Conda管理Python环境](https://miyunda.com/setup-python/)
@@ -108,14 +108,14 @@ conda activate webtest
 ```bash
 conda install selenium
 ```
-安装webdriver的管理器，arm64的Linux无需这一步，因为目前用不上：
+安装的管理器，arm64的Linux无需这一步，因为目前用不上：
 ```bash
 conda config --add channels conda-forge
 conda config --set channel_priority strict
 conda install webdriver-manager
 ```
 # G 测试
-我准备了两个文件，一个是有管理器自动安装webdriver的；另一个是需要在操作系统中事先装好的的。 结合自己实际情况选一个就行了。
+我准备了两个文件，一个是有管理器自动安装driver的；另一个是需要在操作系统中事先装好的的。 结合自己实际情况选一个就行了。
 
 先看看自动的，适用于x86_64的Linux、Windows、所有macOS:
 ```bash
@@ -136,7 +136,7 @@ chrome_options.add_argument("headless")
 driver = webdriver.Chrome(ChromeDriverManager().install(), options=chrome_options)
 home_url = "https://miyunda.com"
 driver.get(home_url)
-print(driver.page_source.encode("utf-8"))
+print(driver.title.encode("utf-8"))
 driver.quit()
 ```
 
@@ -155,7 +155,7 @@ Driver has been saved in cache [/yourhomefolder/.wdm/drivers/chromedriver/mac64/
 ```
 
 ---
-或者是自行指定webdriver路径的，适用于arm64的Linux：
+或者是自行指定driver路径的，适用于arm64的Linux：
 ```python
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -169,7 +169,7 @@ chrome_options.add_argument("headless")
 driver = webdriver.Chrome('/usr/bin/chromedriver', options=chrome_options)
 home_url = "https://miyunda.com"
 driver.get(home_url)
-print(driver.page_source.encode("utf-8"))
+print(driver.title.encode("utf-8"))
 driver.quit()
 ```
 ---
