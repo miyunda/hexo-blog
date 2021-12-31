@@ -28,7 +28,7 @@ sudo apt-key add <3rdparty-repo.gpg>
 
 然后我看了下 `man apt-key`，总之就是虽然能用，但是建议不用，过几年连用都用不了了。
 
-## D 发生肾么事了
+## Dm 发生肾么事了
 究其原因，我们把OpenPGP格式的密钥添加到`/etc/apt/trusted.gpg`或者`/etc/apt/trusted.gpg.d`里面，本意为了认证特定的源；但是这个密钥被APT无条件滴信任，可以用来认证其它木有签名的源，甚至可以替换Ubuntu/Debian官方的源提供的包。所以这是一个不安全的操作。
 
 [Debian维基](https://wiki.debian.org/DebianRepository/UseThirdParty)说的是：
