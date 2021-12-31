@@ -1,6 +1,6 @@
 ---
 title: 搭建Web自动化测试环境
-date: 2021-01-01 00:00:01
+date: 2022-01-01 00:00:01
 categories:
   - 信息技术
 tags:
@@ -136,7 +136,7 @@ chrome_options.add_argument("headless")
 driver = webdriver.Chrome(ChromeDriverManager().install(), options=chrome_options)
 home_url = "https://miyunda.com"
 driver.get(home_url)
-print(driver.title.encode("utf-8"))
+print(driver.title)
 driver.quit()
 ```
 
@@ -169,10 +169,13 @@ chrome_options.add_argument("headless")
 driver = webdriver.Chrome('/usr/bin/chromedriver', options=chrome_options)
 home_url = "https://miyunda.com"
 driver.get(home_url)
-print(driver.title.encode("utf-8"))
+print(driver.title)
 driver.quit()
 ```
 ---
+运行结果应该是这样的：
+![selenium test result](https://ucdn.beijing2b.com/image/selenium-2021-12-31-12-01-05.png)
+
 好了。看过了就等于会了，自己动手写一写，享受您的爬虫吧。
 
 感谢观看。
