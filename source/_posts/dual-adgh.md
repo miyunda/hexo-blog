@@ -15,6 +15,8 @@ tags:
 
 <!-- more -->
 
+**更新于2022年1月9日：我家已经改用[mosdns v3](https://github.com/IrineSistiana/mosdns/wiki)，此软件的单一实例已经代替了多实例ADGuardHome的功能，以下文章已过时。**
+
 <details>
 <summary>低调做事，不要作死</summary>
 
