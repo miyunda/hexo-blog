@@ -206,7 +206,7 @@ sudo sysctl -p
 # F VPN客户端
 按理说呢，桌面客户端应该使用openconnect，使用思科的客户端貌似不占理。移动端可以~~理直气壮滴~~用。安装的时候注意不要默认选项，默认全家桶会安装一大堆用不上的模块，那些是给企业用户的。
 
-![ocsrv-basic-2021-11-29-15-47-57](https://ucdn.beijing2b.com/image/ocsrv-basic-2021-11-29-15-47-57.png)
+![ocsrv-basic-2021-11-29-15-47-57](https://cdn.miyunda.net/image/ocsrv-basic-2021-11-29-15-47-57.png)
 
 [ios在App Store下载](https://apps.apple.com/cn/app/cisco-anyconnect/id1135064690)
 

@@ -29,7 +29,7 @@ tags:
 然后我还有一个脚本，分析`.m3u8`并下载视频文件然后拼接的，它需要另外的Python版本和另外一些模块。
 
 我们就会遇到不同项目需要的版本互相冲突。
-![setup-python-2021-12-28-20-45-23](https://ucdn.beijing2b.com/image/setup-python-2021-12-28-20-45-23.png)
+![setup-python-2021-12-28-20-45-23](https://cdn.miyunda.net/image/setup-python-2021-12-28-20-45-23.png)
 
 *（图片来自网络）*
 
@@ -100,7 +100,7 @@ by running conda init? [yes|no]
 source ~/.bashrc
 ```
 这时应该注意到命令行左下出现了Conda的当前环境名，默认为“base”
-![Conda installer](https://ucdn.beijing2b.com/image/setup-python-2021-12-28-22-09-19.png)
+![Conda installer](https://cdn.miyunda.net/image/setup-python-2021-12-28-22-09-19.png)
 
 也可以查看下安装向导给我们添加了什么环境变量值：
 ```bash
@@ -112,7 +112,7 @@ echo $path
 安装完毕后不要着急启动，先把环境变量之路径搞好：
 
 点下设置（开始菜单里的齿轮）然后输入“env”，为当前用户修改环境变量。接下来编辑路径那里，加入`%USREPROFILE\Miniconda3%` 和 `%USREPROFILE\Miniconda3%\condabin`。之后需要注销再登录以生效。
-![Conda installer Windows](https://ucdn.beijing2b.com/image/setup-python-2021-12-28-22-53-40.gif)
+![Conda installer Windows](https://cdn.miyunda.net/image/setup-python-2021-12-28-22-53-40.gif)
 
 ## 安装后
 为了验证下安装效果，Linux和MacOS启动终端，Windows启动一个Powershell：

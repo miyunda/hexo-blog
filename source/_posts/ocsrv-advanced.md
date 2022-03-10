@@ -32,14 +32,14 @@ tags:
 
 本集我们将改用客户端数字证书来验证，客户端的效果是这样的：
 
-![iOS Anyconnect](https://ucdn.beijing2b.com/image/ios-anyconnect.gif)
+![iOS Anyconnect](https://cdn.miyunda.net/image/ios-anyconnect.gif)
 
 # Dm 野生CA
 
 ## CA证书
 
 与服务器端的证书需要一个被公开承认的CA不同，验证客户端用的数字证书只需要野生CA即可，因为这只需要VPN服务器信任该野生CA，并不麻烦。我画了一个示意图，简单滴展示客户端如何与服务器相互验证握手。
-![Mutual Authentication](https://ucdn.beijing2b.com/image/ocsrv-advanced-2021-11-29-19-27-54.png)
+![Mutual Authentication](https://cdn.miyunda.net/image/ocsrv-advanced-2021-11-29-19-27-54.png)
 
 搭建野生CA并不需要太多资源，它可以是一台单独的Linux服务器，也可以和VPN服务器是同一台。本篇就以上一集的那个VPN服务器为例，先安装必要的工具：
 ```bash
@@ -184,10 +184,10 @@ sudo systemctl restart ocserv
 ## Windows：
 资源管理器双击`client.p12`证书就行了：
 
-![Windows-import-p12](https://ucdn.beijing2b.com/image/ocsrv-advanced-2021-11-30-19-21-24.png)
+![Windows-import-p12](https://cdn.miyunda.net/image/ocsrv-advanced-2021-11-30-19-21-24.png)
 
 导入之后可以用`mmc.exe`加载证书管理：
-![mmc-certificate](https://ucdn.beijing2b.com/image/ocsrv-advanced-2021-11-30-20-44-42.png)
+![mmc-certificate](https://cdn.miyunda.net/image/ocsrv-advanced-2021-11-30-20-44-42.png)
 
 ## Linux:
 ```bash
@@ -197,17 +197,17 @@ sudo openconnect -b https://ocs.foobar.com:51443 -c <path>/client.p12
 
 访达直接双击`low-client.p12`即可导入，开了iCloud同步的话在任意一台导入会自动同步到其他电脑。
 
-![macos-import-p12](https://ucdn.beijing2b.com/image/ocsrv-advanced-2021-11-30-21-46-04.png)
+![macos-import-p12](https://cdn.miyunda.net/image/ocsrv-advanced-2021-11-30-21-46-04.png)
 
 ## 安卓：
 随便用什么方法把文件复制过去，或者起个临时网页。
 
-![Android Anyconnect import p12 cert](https://ucdn.beijing2b.com/image/android-import-p12.gif)
+![Android Anyconnect import p12 cert](https://cdn.miyunda.net/image/android-import-p12.gif)
 
 ## iOS
 给iOS传证书的时候**不要**用AirDrop，那样的话系统不予导入；要作为附件发给自己用内置的邮件App打开，或者起个临时网页用Safari打开，打开之后分享给Anyconnect。
 
-![iOS Anyconnect import p12 cert](https://ucdn.beijing2b.com/image/ios-import-p12.gif)
+![iOS Anyconnect import p12 cert](https://cdn.miyunda.net/image/ios-import-p12.gif)
 ---
 好了，看过了就等于会了。极端恋家者也许可以考虑结合自动化App，判断当木有连接到家里Wi-Fi时自动连接家里VPN。
 感谢观看。

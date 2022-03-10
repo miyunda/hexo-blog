@@ -25,7 +25,7 @@ tags:
 > 第二百八十五条    违反国家规定，侵入国家事务、国防建设、尖端科学技术领域的计算机信息系统的，处三年以下有期徒刑或者拘役。
 
 以上摘自[刑法](http://www.npc.gov.cn/wxzl/wxzl/2000-12/17/content_4680.htm)
-![非法获取计算机信息系统数据](https://ucdn.beijing2b.com/image/selenium-2021-12-30-21-48-45.png)
+![非法获取计算机信息系统数据](https://cdn.miyunda.net/image/selenium-2021-12-30-21-48-45.png)
 以上为使用“非法获取计算机信息系统数据”为关键字在北京法院网站搜索结果的截图。（时间为2020年12月30日）
 
 2016年至2017年间，被告人张某某、宋某、侯某某作为被告单位上海晟品网络科技有限公司主管人员，在上海市共谋采用网络爬虫技术抓取被害单位北京字节跳动网络技术有限公司服务器中存储的视频数据，并由侯某某指使被告人郭某破解北京字节跳动网络技术有限公司的反爬虫措施、实施视频数据抓取行为，造成被害单位损失技术服务费人民币2万元。2017年11月，北京市海淀区人民法院判决本案被告单位上海晟品网络科技有限公司、被告人张某某、宋某、侯某某、郭某构成非法获取计算机信息系统数据罪。以上摘录自北京市海淀区人民法院〔2017〕京0108刑初2384号刑事判决书。
@@ -35,7 +35,7 @@ tags:
 # Dm Selenium 简介
 
 Selenium（硒）正是这样的一种工具，一方面它提供了API，另一方面它通过WebDriver（简称driver，下同）去控制浏览器。
-![selenium-webdriver-architect](https://ucdn.beijing2b.com/image/selenium-2021-12-30-22-25-47.png)
+![selenium-webdriver-architect](https://cdn.miyunda.net/image/selenium-2021-12-30-22-25-47.png)
 因为我的画图软件只有上面三个图标，所以就只画了三个，事实上Selenium（简称Se，下同）支持各种主流的语言和浏览器。每一种浏览器都要有对应的driver，不同版本不同CPU架构平台那么driver也不同。
 
 本文选择的操作系统为CentOS 7 x86_64 和 Debian 11 arm64。
@@ -108,7 +108,7 @@ conda activate webtest
 ```bash
 conda install selenium
 ```
-安装的管理器，arm64的Linux无需这一步，因为目前用不上：
+安装driver管理器，arm64的Linux无需这一步，因为目前用不上：
 ```bash
 conda config --add channels conda-forge
 conda config --set channel_priority strict
@@ -174,7 +174,7 @@ driver.quit()
 ```
 ---
 运行结果应该是这样的：
-![selenium test result](https://ucdn.beijing2b.com/image/selenium-2021-12-31-12-01-05.png)
+![selenium test result](https://cdn.miyunda.net/image/selenium-2021-12-31-12-01-05.png)
 
 好了。看过了就等于会了，自己动手写一写，享受您的爬虫吧。
 
