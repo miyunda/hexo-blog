@@ -143,7 +143,7 @@ certtool --p12-info --inder --infile=low-client.p12
 ```bash
 nano crl.cfg
 ```
-内容大概事这样的：
+内容大概是这样的：
 ```
 crl_next_update = 365
 crl_number = 1

@@ -212,7 +212,7 @@ sudo sysctl -p
 
 [安卓在Google Play](https://play.google.com/store/apps/details?id=com.cisco.anyconnect.vpn.android.avf)
 
-[MacOS和Win10我放网盘里面](https://pan.beijing2b.com/s/VmC9) Arm和x86_64都有。
+[MacOS和Win10我放网盘里面](https://pan.miyunda.net/s/Vwu7) Arm和x86_64都有。
 
 Linux我忘记放哪了，不过用openconnect就挺好：
 ```bash
