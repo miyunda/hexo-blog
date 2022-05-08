@@ -10,21 +10,33 @@ tags:
 ---
 
 
-大家好，家娃为了表达对“大白”的感谢，唱了歌。
+大家好，家娃为了表达对“大白”的感谢，唱了歌。自从《生三胎》那歌被全网下架（其实就一个平台），我就不怎么爱弄歌了。
 <!-- more -->
-主唱是他。有的音他说因为太低所以唱不了不是走调，我就信了。其他部分（伴唱/伴奏）由我完成。
+主唱是他。有的音他说因为太低所以唱不了，“不是走调”，我就信了。其他部分（伴唱/伴奏）由我完成。
 
 这歌仍然是“卡农”，俗称“15634125”，所以伴奏也可以唱很多别的歌，自己试试就行。
 
 建议戴耳机听歌。
 
+猪厂播放器在这里：
+
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1945635738&auto=0&height=66"></iframe>
 
-因为觉得现在可能大家更爱看视频所以传了一个，音乐是一样的。
+<details>
+<summary>尽量去猪厂听啊，给我攒点人气。实在不愿意去猪厂的请点开这里</summary>
+
+ {% aplayer 听我说谢谢你 Jr.米云达 https://cdn.miyunda.net/mp3/%E5%90%AC%E6%88%91%E8%AF%B4%E8%B0%A2%E8%B0%A2%E4%BD%A0.mp3 %}
+
+</details>
+
+
+因为觉得可能大家更爱看视频所以传了一个，音乐是一样的，A站播放器：
+
 <iframe id="spkj" src="https://www.acfun.cn/player/ac34770226" style="height: 720px; width: 1280px; left: 0px; top: 0px;" frameborder="no" scrolling="no" allowfullscreen="allowfullscreen"> </iframe>
 
-需要伴奏的直接PY我就行，5元钱。
+[看不了上面视频的点这里](https://www.acfun.cn/v/ac34770226?shareUid=31166672)
 
+* 需要伴奏的直接PY我就行，5元钱。
 
 ---
 
