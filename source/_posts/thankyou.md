@@ -22,13 +22,6 @@ tags:
 
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1945635738&auto=0&height=66"></iframe>
 
-<details>
-<summary>尽量去猪厂听啊，给我攒点人气。实在不愿意去猪厂的请点开这里</summary>
-
- {% aplayer 听我说谢谢你 Jr.米云达 https://cdn.miyunda.net/mp3/%E5%90%AC%E6%88%91%E8%AF%B4%E8%B0%A2%E8%B0%A2%E4%BD%A0.mp3 %}
-
-</details>
-
 
 因为觉得可能大家更爱看视频所以传了一个，音乐是一样的，A站播放器：
 
