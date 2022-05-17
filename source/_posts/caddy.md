@@ -26,6 +26,8 @@ tags:
 
 当然了，不只是游戏，搭建个博客或者CMS类也是可以的，反正都是PHP的动态网站。
 
+建议纯新手先完成[Linux服务器小白教程](https://miyunda.com/caddy/)。
+
 ### LNMP LAMP LAMPA
 何为LNMP？
 * Linux——操作系统
