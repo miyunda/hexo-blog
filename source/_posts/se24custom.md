@@ -30,7 +30,7 @@ tags:
 
 爱看视频的在这里，音乐是一样的，A站播放器：
 
-<iframe id="spkj" src="https://www.acfun.cn/player/ac34770226ac35036594" style="height: 720px; width: 1280px; left: 0px; top: 0px;" frameborder="no" scrolling="no" allowfullscreen="allowfullscreen"> </iframe>
+<iframe id="spkj" src="https://www.acfun.cn/player/ac35036594" style="height: 720px; width: 1280px; left: 0px; top: 0px;" frameborder="no" scrolling="no" allowfullscreen="allowfullscreen"> </iframe>
 
 [看不了上面视频的点这里](https://www.acfun.cn/v/ac35036594?shareUid=31166672)
 
