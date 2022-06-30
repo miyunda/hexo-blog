@@ -1,5 +1,5 @@
 ---
-title: 搭建家庭简易IT实验室——PVE安装后
+title: 搭建家庭简易IT实验室——cloud-init
 cover: https://cdn.miyunda.net//uPic/background.webp
 coverWidth: 512
 coverHeight: 320
