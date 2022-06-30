@@ -1,5 +1,5 @@
 ---
-title: 搭建简易家庭IT实验室——PVE安装后
+title: 搭建家庭简易IT实验室——PVE安装后
 cover: https://cdn.miyunda.net//uPic/background.webp
 coverWidth: 512
 coverHeight: 320
@@ -12,7 +12,7 @@ tags:
   - 数字化过家家
   - homelab
 ---
-大家好，本文是《搭建简易家庭IT实验室》系列文章的第一篇，描述了我如何在安装完成后调整PVE服务器设置。系列文章还包括Terraform、Ansible、Github Action、Prometheus等内容，~~也有可能随时鸽~~。所有内容并非面向Linux大佬，而是面对像我一样不会Linux但是又喜欢玩数字化过家家的朋友。本文记录了我学习相关知识的过程，也供感兴趣的朋友参考。有什么不对或者可以做得更好的地方，还请大家不吝赐教。
+大家好，本文是《搭建家庭简易IT实验室》系列文章的第一篇，描述了我如何在安装完成后调整PVE服务器设置。系列文章还包括Terraform、Ansible、Github Action、Prometheus等内容，~~也有可能随时鸽~~。所有内容并非面向Linux大佬，而是面对像我一样不会Linux但是又喜欢玩数字化过家家的朋友。本文记录了我学习相关知识的过程，也供感兴趣的朋友参考。有什么不对或者可以做得更好的地方，还请大家不吝赐教。
 
 <!-- more -->
 
@@ -79,10 +79,10 @@ apt update
 肯定不能一直用root登录Linux的SSH，对于这一块不熟悉的可以参考[Linux服务器小白教程](https://miyunda.com/linux/)。
 ### 还得弄一个网页控制台的账号：
 我在网页控制台禁用了root账号：
-![disable root](https://cdn.miyunda.net//uPic/pve-postinstall02.png)
+![pve-postinstall-disable-root](https://cdn.miyunda.net/uPic/pve-postinstall-disable-root.png)
 
 并且创建了一个自己用的账号，具有一切权限：
-![create my admin account](https://cdn.miyunda.net//uPic/pve-postinstall01.png)
+![pve-postinstall-new-admin](https://cdn.miyunda.net/uPic/pve-postinstall-new-admin.png)
 
 ## 性能调整
 
@@ -127,7 +127,7 @@ lvs
 ```bash
 fdisk -l
 ```
-其中最大的就是我们需要的，它的类型是“Linux LVM”， 我这里是**/dev/nvme0n1p3**。
+其中最大的就是我们需要的，它的类型是“Linux LVM”， 我这里是**nvme0n1p3**。
 
 把多余的空间加给它：
 ```bash
@@ -197,6 +197,13 @@ GOVERNOR="ondemand"
 systemctl reload cpufrequtils.service
 ```
 再次使用`cpufreq-info`观察，已经节能降频了。
+
+#### 查看温度
+可以看CPU、芯片组以及硬盘的温度：
+```bash
+sudo apt install lm-sensors
+sensors
+```
 ## F SSL证书（可选）
 无论访问网页控制台还是REST API，作为http服务器（其实是个反向代理服务器），PVE是支持SSL证书的。SSL证书的好处就不用说了，肯定要用的。默认情况下，PVE是绑了自签名证书，可以令常用的客户端（浏览器等）信任其颁发者（issuer）即可；您也可以上传安装自行购买的证书；或者也可以利用内置的ACME脚本来申请并安装一个Let's Encrypt证书。 这里的ACME验证有两种：http和DNS，无非都是为了证明您对声明的域名有控制权。想要使用http验证，需要能被访问到TCP80和TCP443端口，就算了；我们将使用DNS验证。
 
@@ -215,20 +222,21 @@ systemctl reload cpufrequtils.service
 
 ### ACME账号
 之前我说把root账号禁用那里，有点说早了，ACME的功能只有系统原生root账号才能用，自建的管理员账号不给用ACME功能，所以可以等证书好了再禁用root账号。
-![ACME account](https://cdn.miyunda.net//uPic/pve-postinstall06.png)
+![pve-postinstall-acme](https://cdn.miyunda.net/uPic/pve-postinstall-acme.png)
 
 ### ACME插件
 这个支持很多DNS服务商的，用哪家的就加进来就好了，但是好像木有看到鹅厂。
-![ACME plugin](https://cdn.miyunda.net//uPic/pve-postinstall07.png)
+![pve-postinstall-acme-plugin](https://cdn.miyunda.net/uPic/pve-postinstall-acme-plugin.png)
  
 ### 申请证书
 甚至可以为多个FQDN申请证书，成品将以SANdns或者通配符的形式提供。
-![ACME order](https://cdn.miyunda.net//uPic/pve-postinstall08.png)
+![pve-postinstall-order-cert](https://cdn.miyunda.net/uPic/pve-postinstall-order-cert.png)
 
 ## G 对时
 时间同步很重要，但是这次就略过了，很简单的。
 
 ## Am 总结
 这次我们在PVE安装完成之后进行了一番设置，虽然大多不是什么必须的设置，但是令我们使用PVE更方便更快捷。下一篇文章我们将开始创建虚拟机。
+
 ---
 谢谢观看，看过就等于会了。
