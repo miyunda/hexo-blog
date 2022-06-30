@@ -48,7 +48,7 @@ wget https://cdimage.debian.org/cdimage/cloud/bullseye/latest/debian-11-genericc
 
 ## F 创建一个模版机
 以下命令创建一个 编号为200的虚拟机，它有一个桥接网卡，使用DHCP获取IP地址。
->例子中的CPU可能要在BIOS里允许CPU虚拟化），不确定的话可以省略这个选项，它会使用默认的*kvm64*作为CPU类型.
+>例子中的CPU可能要在BIOS里允许CPU虚拟化，不确定的话可以省略这个选项，它会使用默认的*kvm64*作为CPU类型.
 ```bash
 sudo qm create 200 --name bullseye-vm-tmpl --memory 4096 --net0 virtio,bridge=vmbr0 --cores=2 --cpu host
 ```
