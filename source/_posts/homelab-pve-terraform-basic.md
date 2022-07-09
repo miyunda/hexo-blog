@@ -230,7 +230,7 @@ export TF_VAR_pm_api_url=https://<pve服务器以及端口>/api2/json
 export TF_VAR_pm_api_token_id=terraform-svc@pam!terraform-token
 export TF_VAR_pm_api_token_secret=c2cf68f4-eadd-41c8-a743-375bc1a3042b
 ```
-不过这样做仍然有泄露的风险，比如`history`命令或者`printenv`就能出卖一切。不过比前面那种写在文件里好多了。追求更安全的同学可以去搜索“key vault”关键词，HashiCorp/Azure/Oracle都有解决方案。我这里不涉及——*因为我不会*——这边最终运行tf是在用过即销毁的工作站 （CI/CD runner）上。
+不过这样做仍然有泄露的风险，比如`history`命令或者`printenv`就能出卖一切。不过比前面那种写在文件里好多了。追求更安全的同学可以去搜索“key vault”关键词，HashiCorp/Azure/Oracle都有解决方案。我这里不涉及——~~因为我不会~~——这边最终运行tf是在用过即销毁的工作站 （CI/CD runner）上。
 
 ### <module.tf>
 前面铺垫那么多，终于要做事了。我们建个文件，比如`k8s-prod.tf`：
