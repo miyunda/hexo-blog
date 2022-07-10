@@ -73,13 +73,13 @@ sudo qm set 200 --boot order=scsi0
 sudo qm set 200 --serial0 socket --vga serial0
 ```
 ## G cloud-init
-在继续下一步之前，我们有必要了解一下`cloud-init`。想象一下，当您克隆出多台Linux服务器然后它们都叫一个名字那有多烦，更别说各种id，什么SSH身份的一堆东西都重复的。`cloud-init`在Linux引导之后重新初始化相关信息。不过与各大云服务厂商不同，他们的`cloud-init`会去`169.254.169.254`取元数据（metadata），咱们的就相对简陋一点，元数据由PVE直接提供.不过用起来效果是一样的。老朋友们会记得去年我在[Oracle Cloud运算实例的简易部署](https://miyunda.com/oci-terraform/)中使用过`cloud-init`。想要更多信息的朋友请自行去[红帽官网](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_cloud-init_for_rhel_8/introduction-to-cloud-init_cloud-content)学习。
+在继续下一步之前，我们有必要了解一下`cloud-init`。想象一下，当您克隆出多台Linux服务器然后它们都叫一个名字那有多烦，更别说各种id，什么SSH身份的一堆东西都重复的。`cloud-init`在Linux引导之后重新初始化相关信息。不过与各大云服务厂商不同，他们的`cloud-init`会去`169.254.169.254`取元数据（metadata），咱们的就相对简陋一点，元数据由PVE写在虚拟光盘里，不过用起来效果是一样的。老朋友们会记得去年我在[Oracle Cloud运算实例的简易部署](https://miyunda.com/oci-terraform/)中使用过`cloud-init`。想要更多信息的朋友请自行去[红帽官网](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_cloud-init_for_rhel_8/introduction-to-cloud-init_cloud-content)学习。
 
 要打开`could-init`选项，PVE使用的方法是挂载一个虚拟光驱：
 ```bash
 sudo qm set 200 --ide2 local-lvm:cloudinit
 ```
-还能建用户及导入对应的SSH公钥：
+还能建用户及导入对应的SSH公钥，比如这样就在虚拟光盘里面放置了一个文件，告诉cloud-init去做哪些事：
 ```bash
 sudo qm set 200 --ciuser miyunda --sshkey  ~/.ssh/id_ed25519.pub
 ```
@@ -93,6 +93,17 @@ sudo apt-get install qemu-guest-agent
 ```bash
 sudo qm template 200
 ```
+### 自定义cloud-init文件
+假如需要用cloud-init管理的项目太多，那么把他们写在一个文件里会更方便，pve会把这个文件写到虚拟光盘里面，我们的虚拟机开机之后会从这个文件得到指示。
+
+得先开启“片段（snippet）”功能，默认未开启：
+
+![enable snippets](https://cdn.miyunda.net/uPic/Downloads/homelab-cloudinit-enbalesinppets.png)
+或者去SSH去pve：
+```bash
+sudo pvesm set local --content vztmpl,backup,iso,snippets
+```
+
 ## Am 一键克隆
 之后就可以利用模版机~~无性繁殖生三胎了~~：
 ```bash
