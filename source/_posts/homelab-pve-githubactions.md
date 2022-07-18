@@ -17,7 +17,7 @@ tags:
 <!-- more -->
 
 ## C 前情提要
-在上一篇文章中，我们为tf建立了S3存储，tf将后端的数据写入S3存储，这就为今天的内容打好了基础。阅读本文需要您先完成上一篇[搭建简易家庭IT实验室——Terraform（后端云存储）](https://miyunda.com/homelab-pve-s3/)。
+在上一篇文章中，我们为tf建立了S3存储，tf将后端的数据写入S3存储，这就为今天的内容打好了基础。阅读本文需要您先完成上一篇[搭建简易家庭IT实验室——Terraform（后端云存储）](https://miyunda.com/homelab-terraform-s3/)。
 
 ## Dm 仓库
 代码版本控制的好处就不用说了，我选择GitHub作本次演示。
