@@ -50,8 +50,7 @@ terraform -v
   <summary>感兴趣的点开复制保存，第一个冒号后面是要运行tf的机器的名字或组名</summary>
   
  ```yaml
- ---
-- hosts: <terraform workstation name>
+ - hosts: <要运行TF的机器名字>
   become: true
   become_method: sudo
   tasks:
@@ -61,22 +60,38 @@ terraform -v
         state: latest
         update_cache: yes
 
-    - name: Introduce HashiCorp APT signing key
-      ansible.builtin.apt_key:
-        url: https://apt.releases.hashicorp.com/gpg
-        keyring: /usr/share/keyrings/terraform-archive-keyring.gpg
+    - name: Remove gpg keys
+      file:
+        path: "{{ item }}"
+        state: absent
+      with_items:
+        - /usr/share/keyrings/hashicorp-archive-keyring.gpg_armored
+        - /usr/share/keyrings/hashicorp-archive-keyring.gpg
 
-    - name: Introduce HashiCorp APT repo
-      ansible.builtin.apt_repository:
-        repo: deb [arch=amd64 signed-by=/usr/share/keyrings/terraform-archive-keyring.gpg] https://apt.releases.hashicorp.com bullseye main
+    - name: Download HashiCorp gpg key
+      get_url:
+        url: https://apt.releases.hashicorp.com/gpg
+        dest: /usr/share/keyrings/hashicorp-archive-keyring.gpg_armored
+        checksum: sha256:ecc3a34eca4ba12166b58820fd8a71e8f6cc0166d7ed7598a63453648f49c4c5
+
+    - name: De-Armor HashiCorp gpg key
+      shell: gpg --dearmor < /usr/share/keyrings/hashicorp-archive-keyring.gpg_armored > /usr/share/keyrings/hashicorp-archive-keyring.gpg
+      no_log: true
+      args:
+        creates: /usr/share/keyrings/hashicorp-archive-keyring.gpg
+
+    - name: Add HashiCorp's repository to APT sources list
+      apt_repository:
+        repo: "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com {{ ansible_distribution_release }} stable"
+        filename: /etc/apt/sources.list.d/hashicorp.list
         state: present
-        filename: terraform
+        update_cache: true
 
     - name: Install TF
       apt:
         name: terraform
         state: latest
-        update_cache: yes
+        update_cache: no
  ```
  </details>
 
