@@ -1,10 +1,10 @@
-avatar: https://cdn.beijing2b.com/image/png/avatar.png # 网站 Logo
+avatar: https://cdn.miyunda.net/image/avatar.png # 网站 Logo
 background:
-  path: https://cdn.beijing2b.com/image/jpg/background.jpg 
+  path: https://cdn.miyunda.net/image/background.jpg
   width: 1440
   height: 739
 favicon:
-  href: https://cdn.beijing2b.com/image/favicon.ico # 网站图标
+  href: https://cdn.miyunda.net/image/favicon.ico # 网站图标
   type: image/png # 图标类型，可能的值有(image/png, image/vnd.microsoft.icon, image/x-icon, image/gif)
 
 function: # 功能开关，可选值（true,false）
@@ -12,20 +12,20 @@ function: # 功能开关，可选值（true,false）
   darkmode: false # 是否启用暗色主题，可选值（true,false）
 
 imageCDN: # 图片 CDN 功能
-  enable: false # 开启该功能  
+  enable: false # 开启该功能
   origin: /../../images/ # 图片原始目录
   to: https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/ # 图片 CDN 域名
 
 # 附加图标库 用于自定义字体 www.iconfont.cn 登录->创建项目->添加图标->获取链接
 iconlib: # //at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css
 
-search: 
+search:
   type: engine # 可选engine（用搜索引擎搜索）、swiftype、或local（本地搜索）
   url: https://cn.bing.com/search?q=site:miyunda.com # 搜索引擎地址，在type为swiftype时无效 e.g:https://www.google.com/search?q={你的博客链接}
   id: <swiftype-id> # swiftype的id，见启用教程。在type为engine时无效
 
 cdn: # 这里可以修改站点使用的库的CDN
-  disqusjs: 
+  disqusjs:
     css: https://cdn.jsdelivr.net/npm/disqusjs@1.2.5/dist/disqusjs.min.css
     js: https://cdn.jsdelivr.net/npm/disqusjs@1.2.5/dist/disqus.min.js
   gitalk:
@@ -35,23 +35,23 @@ cdn: # 这里可以修改站点使用的库的CDN
     js: https://cdn.jsdelivr.net/npm/valine
 
 menu:
-  回到首页: 
+  回到首页:
     - /
     - icon-home
-#  文章归档:  # 使用说明：https://docs.nexmoe.com/article/archive
-#    - /archive.html
-#    - icon-container
+  #  文章归档:  # 使用说明：https://docs.nexmoe.com/article/archive
+  #    - /archive.html
+  #    - icon-container
   关于:
     - /about.html
     - icon-info-circle
-  和我PY: 
+  和我PY:
     - /PY.html # 使用说明：https://docs.nexmoe.com/article/py
 
 widgets:
-- search
-- social
-- category
-- tagcloud
+  - search
+  - social
+  - category
+  - tagcloud
 # - archive #settings: widgetAchive
 # - recent_posts
 # - link #settings: widgetLink
@@ -59,10 +59,10 @@ widgets:
 maxTagcloud: 9 # 0 表示不限制
 
 # 自定义样式，启用后可在站点的source文件夹下新建custom.css自定义站点样式
-customstyle: false  
+customstyle: false
 color: # 配色方案，从first到seventh为优先级为1-7的颜色，默认为彩虹配色
   first: # 同时作为主题色
-    r: 255 
+    r: 255
     g: 78
     b: 106
   second:
@@ -97,13 +97,13 @@ social:
     - rgb(231, 106, 141)
     - rgba(231, 106, 141, .15)
   GitHub:
-  - https://github.com/miyunda/
-  - icon-github
-  - rgb(25, 23, 23)
-  - rgba(25, 23, 23, .15)
+    - https://github.com/miyunda/
+    - icon-github
+    - rgb(25, 23, 23)
+    - rgba(25, 23, 23, .15)
 
 site_verification: # 向搜索引擎验证你对站点的所有权，用于向搜索引擎提交 sitemap 和管理站点被搜索引擎收录的情况。
-  google:  
+  google:
   baidu:
 
 analytics: # 统计系统，目前支持 Google analytics.js 统计、Google Tag Manager 统计、CNZZ 统计、腾讯统计、51.La统计、百度统计
@@ -165,16 +165,16 @@ copyTip: "著作权归作者所有。\n商业转载请联系作者获得授权�
 
 # achive widget behavior
 widgetAchive: #文章归档组件
-  archive_type: 'year' #按月展示还是按年展示
-  show_count: true  #是否展示数量
+  archive_type: "year" #按月展示还是按年展示
+  show_count: true #是否展示数量
 
 widgetLink: #链接组件
   - title: <title>
-    img : <img_path>
-    link : <url>
+    img: <img_path>
+    link: <url>
   - title: <title>
-    img : <img_path>
-    link : <url>
+    img: <img_path>
+    link: <url>
 
 # 自定义侧边栏尾部内容
 sidebar: #'<br><a target="_blank" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img src="https://i.dawnlab.me/c0268c1e6cfd0863d6ba35be1575941a.png" width="150px"></a><script data-ad-client="ca-pub-2058306854838448" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>'
